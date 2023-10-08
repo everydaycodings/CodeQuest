@@ -1,5 +1,8 @@
-import json
 import random
+import requests
+from bs4 import BeautifulSoup
+import json
+import time
 
 def fetchCategories():
     json_file_path = 'data/questions_data.json'
@@ -80,3 +83,77 @@ def parse_html_question_markdown(html_content):
     )
 
     return markdown_output
+
+
+def getLeetcodeData(questiontitle):
+# Replace 'your_api_url_here' with the actual URL from which you are fetching the data
+    api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        for entry in data["stat_status_pairs"]:
+            question_title = entry["stat"]["question__title"]
+            
+            if question_title == questiontitle:
+
+                question_id = entry["stat"]["question_id"]
+                title_slug = entry["stat"]["question__title_slug"]
+                difficulty_level = entry["difficulty"]["level"]
+                premium = entry["paid_only"]
+                
+                result = {
+                    "question_id": question_id,
+                    "title_slug": title_slug,
+                    "difficulty_level": difficulty_level,
+                    "premium": premium
+                }
+
+                return result 
+            
+
+
+def dumpData(html_code_raw, file_location):
+    soup = BeautifulSoup(html_code_raw, 'html.parser')
+
+    # Find the list-group div
+    #list_group_div = soup.find('div', class_='list-group')
+
+    # Find all question items within the list-group div
+    question_items = soup.find_all('li', class_='list-group-item question')
+
+    # Extract data into a dictionary
+    category_data = {
+        "Category": {
+            "StriverA-Z":[],
+        }
+    }
+
+    for item in question_items:
+        title_element = item.find('div', class_='question-title')
+        title_parts = title_element.text.split('.', 1)
+        question_number = title_parts[0].strip()
+        title = title_parts[1].strip()
+        link = title_element.find('a')['href']
+
+        leetcodedata = getLeetcodeData(title)
+
+        question_data = {
+            "title": title,
+            "href": link,
+            "question_id": leetcodedata["question_id"],
+            "title_slug": leetcodedata["title_slug"],
+            "difficulty_level": leetcodedata["difficulty_level"],
+            "premium": leetcodedata["premium"]
+        }
+        category_data["Category"]["StriverA-Z"].append(question_data)
+        time.sleep(2)
+
+
+    # Save the data to a JSON file
+    json_file_path = file_location
+    with open(json_file_path, 'w', encoding='utf-8') as json_file:
+        json.dump(category_data, json_file, ensure_ascii=False, indent=2)
+
+    return 1
