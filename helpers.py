@@ -85,13 +85,17 @@ def parse_html_question_markdown(html_content):
     return markdown_output
 
 
-def getLeetcodeData(questiontitle):
-# Replace 'your_api_url_here' with the actual URL from which you are fetching the data
-    api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
-    response = requests.get(api_url)
+def fetch_leetcode_question_data():
 
-    if response.status_code == 200:
-        data = response.json()
+    api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
+    return requests.get(api_url)
+
+
+def getLeetcodeData(questiontitle, api_response):
+# Replace 'your_api_url_here' with the actual URL from which you are fetching the data
+
+    if api_response.status_code == 200:
+        data = api_response.json()
 
         for entry in data["stat_status_pairs"]:
             question_title = entry["stat"]["question__title"]
@@ -115,8 +119,10 @@ def getLeetcodeData(questiontitle):
 
 
 def dumpData(html_code_raw, file_location):
+    
     soup = BeautifulSoup(html_code_raw, 'html.parser')
 
+    api_res = fetch_leetcode_question_data()
     # Find the list-group div
     #list_group_div = soup.find('div', class_='list-group')
 
@@ -137,7 +143,7 @@ def dumpData(html_code_raw, file_location):
         title = title_parts[1].strip()
         link = title_element.find('a')['href']
 
-        leetcodedata = getLeetcodeData(title)
+        leetcodedata = getLeetcodeData(title, api_res)
 
         question_data = {
             "title": title,
