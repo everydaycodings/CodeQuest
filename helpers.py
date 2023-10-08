@@ -52,3 +52,37 @@ def get_random_question(category_list):
     }
 
     return result
+
+
+def parse_html_question_markdown(html_content):
+    # Parse HTML content
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Extract relevant information
+    question_text = soup.find('div', class_='xFUwe').find_all('p')[:3]
+    question_text = ' '.join([text.text.strip() for text in question_text])
+
+    # Extract example inputs and outputs
+    examples = soup.find('div', class_='xFUwe').find_all('pre')
+    example_data = []
+    for i, example in enumerate(examples, 1):
+        example_input = example.find('strong', text='Input:').find_next('code').get_text(strip=True)
+        example_output = example.find('strong', text='Output:').find_next('code').get_text(strip=True)
+        example_data.append(f"Example {i} - Input: `{example_input}`, Output: `{example_output}`\n\n")
+
+    # Extract constraints
+    constraints = soup.find('div', class_='xFUwe').find('strong', text='Constraints:').find_next('ul')
+    constraints_text = ' '.join([f"- {constraint.get_text(strip=True)}\n\n" for constraint in constraints.find_all('li')])
+
+    # Combine everything into a Markdown text
+    markdown_output = (
+        f"{question_text}\n" + f"\nConstraints:\n{constraints_text}"
+    )
+
+    return markdown_output
+
+
+result_markdown = parse_html_question_markdown(html_content)
+
+# Output the results as Markdown
+print(result_markdown)
