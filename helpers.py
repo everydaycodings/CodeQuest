@@ -80,9 +80,3 @@ def parse_html_question_markdown(html_content):
     )
 
     return markdown_output
-
-
-result_markdown = parse_html_question_markdown(html_content)
-
-# Output the results as Markdown
-print(result_markdown)
