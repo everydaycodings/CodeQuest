@@ -2,6 +2,19 @@ import streamlit as st
 from utils import fetchCategories
 from helpers import get_random_question
 
+
+import streamlit as st
+
+st.set_page_config(
+    page_title="CodeQuest",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+
+
+
 st.sidebar.title(":blue[CodeQuest Control Panel]")
 st.title(":blue[Welcome To CodeQuest]")
 
@@ -25,11 +38,11 @@ if(st.button("Fetch Random Question")):
     question_title = "{}-{}".format(question_set["question_id"], question_set["title"])
     question_link = "https://leetcode.com{}".format(question_set["href"])
     difficulty_level = question_set["difficulty_level"]
-    premium = question_set["premium"]
+    premium = str(question_set["premium"])
 
     with col1:
         st.subheader("Question")
-        st.text(question_title)
+        st.markdown("**{}**".format(question_title))
     
     with col2:
         st.subheader("Level")
@@ -45,11 +58,10 @@ if(st.button("Fetch Random Question")):
     
     with col3:
         st.subheader("Premium")
-
-        if premium == "true":
-            st.caption(":money_mouth_face:")
-        else:
-            st.caption(":thumbsup:")
+        if premium == "True":
+            st.caption("Money :money_mouth_face:")
+        elif premium == "False":
+            st.caption("Free :thumbsup:")
     
     with col4:
         st.subheader("Link")
