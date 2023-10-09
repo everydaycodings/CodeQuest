@@ -3,19 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
-
-def fetchCategories():
-    json_file_path = 'data/questions_data.json'
-
-    # Read JSON data from file
-    with open(json_file_path, 'r', encoding='utf-8') as file:
-        json_data = json.load(file)
-
-    # Get all category names
-    category_names = list(json_data['Category'].keys())
-
-    return category_names
-
+import utils
+import csv
 
 
 def get_random_question(category_list):
@@ -57,109 +46,64 @@ def get_random_question(category_list):
     return result
 
 
-def parse_html_question_markdown(html_content):
-    # Parse HTML content
-    soup = BeautifulSoup(html_content, 'html.parser')
 
-    # Extract relevant information
-    question_text = soup.find('div', class_='xFUwe').find_all('p')[:3]
-    question_text = ' '.join([text.text.strip() for text in question_text])
+class DumpData():
 
-    # Extract example inputs and outputs
-    examples = soup.find('div', class_='xFUwe').find_all('pre')
-    example_data = []
-    for i, example in enumerate(examples, 1):
-        example_input = example.find('strong', text='Input:').find_next('code').get_text(strip=True)
-        example_output = example.find('strong', text='Output:').find_next('code').get_text(strip=True)
-        example_data.append(f"Example {i} - Input: `{example_input}`, Output: `{example_output}`\n\n")
+    def __init__(self):
+        self.api_res = self.fetch_leetcode_question_data()
+        
 
-    # Extract constraints
-    constraints = soup.find('div', class_='xFUwe').find('strong', text='Constraints:').find_next('ul')
-    constraints_text = ' '.join([f"- {constraint.get_text(strip=True)}\n\n" for constraint in constraints.find_all('li')])
+    def fetch_leetcode_question_data(self):
 
-    # Combine everything into a Markdown text
-    markdown_output = (
-        f"{question_text}\n" + f"\nConstraints:\n{constraints_text}"
-    )
+        api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
 
-    return markdown_output
-
-
-def fetch_leetcode_question_data():
-
-    api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
-    return requests.get(api_url)
-
-
-def getLeetcodeData(questiontitle, api_response):
-# Replace 'your_api_url_here' with the actual URL from which you are fetching the data
-
-    if api_response.status_code == 200:
-        data = api_response.json()
-
-        for entry in data["stat_status_pairs"]:
-            question_title = entry["stat"]["question__title"]
-            
-            if question_title == questiontitle:
-
-                question_id = entry["stat"]["question_id"]
-                title_slug = entry["stat"]["question__title_slug"]
-                difficulty_level = entry["difficulty"]["level"]
-                premium = entry["paid_only"]
-                
-                result = {
-                    "question_id": question_id,
-                    "title_slug": title_slug,
-                    "difficulty_level": difficulty_level,
-                    "premium": premium
-                }
-
-                return result 
-            
-
-
-def dumpData(html_code_raw, file_location):
+        return requests.get(api_url)
     
-    soup = BeautifulSoup(html_code_raw, 'html.parser')
-
     api_res = fetch_leetcode_question_data()
-    # Find the list-group div
-    #list_group_div = soup.find('div', class_='list-group')
+    
+    api_res = fetch_leetcode_question_data()
+    
+    def extract_columns(self, csv_file_path):
 
-    # Find all question items within the list-group div
-    question_items = soup.find_all('li', class_='list-group-item question')
+        # Open the CSV file for reading
+        with open(csv_file_path, 'r', newline='', encoding='utf-8') as csvfile:
+            # Create a CSV reader
+            reader = csv.DictReader(csvfile)
 
-    # Extract data into a dictionary
-    category_data = {
-        "Category": {
-            "StriverA-Z":[],
+            # Extracted columns
+            extracted_columns = []
+
+            # Iterate over each row in the CSV file
+            for row in reader:
+                # Extract the desired columns
+                problem_title = row["problem_name"]
+
+                leetcodedata = utils.getLeetcodeData(problem_title, self.api_res)
+                
+                extracted_columns.append(leetcodedata)
+
+        
+        return extracted_columns
+
+
+    def add_new_category(self, existing_data_path, category_name, csv_file_path):
+    
+        with open('{}.json'.format(existing_data_path), 'r') as file:
+            existing_data = json.load(file)
+
+
+        new_category_data = {
+        category_name: self.extract_columns(csv_file_path)
         }
-    }
 
-    for item in question_items:
-        title_element = item.find('div', class_='question-title')
-        title_parts = title_element.text.split('.', 1)
-        question_number = title_parts[0].strip()
-        title = title_parts[1].strip()
-        link = title_element.find('a')['href']
-
-        leetcodedata = getLeetcodeData(title, api_res)
-
-        question_data = {
-            "title": title,
-            "href": link,
-            "question_id": leetcodedata["question_id"],
-            "title_slug": leetcodedata["title_slug"],
-            "difficulty_level": leetcodedata["difficulty_level"],
-            "premium": leetcodedata["premium"]
-        }
-        category_data["Category"]["StriverA-Z"].append(question_data)
-        time.sleep(2)
+        existing_data["Category"].update(new_category_data)
 
 
-    # Save the data to a JSON file
-    json_file_path = file_location
-    with open(json_file_path, 'w', encoding='utf-8') as json_file:
-        json.dump(category_data, json_file, ensure_ascii=False, indent=2)
+        with open('{}.json'.format(existing_data_path), 'w') as file:
+            json.dump(existing_data, file, indent=2)
+    
 
-    return 1
+    def run(self, existing_data_path, category_name, csv_file_path):
+        self.add_new_category(existing_data_path, category_name, csv_file_path)
+
+    
