@@ -48,7 +48,7 @@ def getLeetcodeData(questiontitle, api_response):
                     "question_id": question_id,
                     "title_slug": title_slug,
                     "title": question_title,
-                    "href": "https://leetcode.com/problems/{}".format(title_slug),
+                    "href": "/problems/{}".format(title_slug),
                     "difficulty_level": difficulty_level,
                     "premium": premium
                 }

@@ -34,14 +34,24 @@ def get_random_question(category_list):
     # Choose a random question from the list
     random_question = random.choice(questions_list)
 
-    # Extract title and href from the random question
-    random_title = random_question["title"]
-    random_href = random_question["href"]
-
-    result = {
-        "Title": random_title,
-        "Href": random_href
-    }
+    if random_question != None:
+        result = {
+            "question_id": random_question["question_id"],
+            "title_slug": random_question["title_slug"],
+            "title": random_question["title"],
+            "href": random_question["href"],
+            "difficulty_level": random_question["difficulty_level"],
+            "premium": random_question["premium"]
+        }
+    else:
+        result = {
+            "question_id": None,
+            "title_slug": None,
+            "title": None,
+            "href": None,
+            "difficulty_level": None,
+            "premium": None
+        }
 
     return result
 
