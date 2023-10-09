@@ -20,18 +20,21 @@ st.title(":blue[Welcome To CodeQuest]")
 
 
 category_list = fetchCategories()
-control_panel_list = ["View Quest", "Dump Question"]
+control_panel_list = ["Random Quest", "Dump Question"]
 
 selected_control = st.sidebar.selectbox(label="Select Your Action: ", options=control_panel_list, index=0)
 
-selected_categories = st.multiselect(label="Select Your Categorie", options=category_list, default=category_list[0])
+selected_categories = st.multiselect(label="Select Your Categorie", options=["All"] + category_list, default=category_list[0])
 
 
 
 
 if(st.button("Fetch Random Question")):
 
-    question_set = get_random_question(selected_categories)
+    if "All" in selected_categories:
+        question_set = get_random_question(category_list)
+    else:
+        question_set = get_random_question(selected_categories)
 
     col1, col2, col3, col4 = st.columns(4)
 
