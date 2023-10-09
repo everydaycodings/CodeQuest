@@ -51,7 +51,7 @@ class DumpData():
 
     def __init__(self):
         self.api_res = self.fetch_leetcode_question_data()
-        
+
 
     def fetch_leetcode_question_data(self):
 
@@ -59,9 +59,6 @@ class DumpData():
 
         return requests.get(api_url)
     
-    api_res = fetch_leetcode_question_data()
-    
-    api_res = fetch_leetcode_question_data()
     
     def extract_columns(self, csv_file_path):
 

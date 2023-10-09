@@ -1,5 +1,6 @@
 import streamlit as st
-from helpers import fetchCategories, get_random_question
+from utils import fetchCategories
+from helpers import get_random_question
 
 st.sidebar.title(":blue[CodeQuest Control Panel]")
 st.title(":blue[Welcome To CodeQuest]")
