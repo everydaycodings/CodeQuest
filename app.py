@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import fetchCategories
+from utils import fetchCategories, fetchDataBasePath
 from helpers import get_random_question, DumpLeetcodeAPIData, DumpCSVData
 
 
@@ -94,7 +94,7 @@ if control_panel_list[1] in selected_control:
             st.text(" ")
             st.text(" ")
             st.text(" ")
-            file_name = st.text_input(label="Enter the Database Name(without .json extension)", placeholder="mydatabasename")
+            file_name = st.selectbox(label="Enter the Database Name(without .json extension)", options=fetchDataBasePath())
             
         
         with col2:
@@ -117,7 +117,7 @@ if control_panel_list[1] in selected_control:
             st.markdown("###### {}".format(format_selected))
             st.text(" ")
             st.text(" ")
-            file_name = st.text_input(label="Enter the Database Name(without .json extension)", placeholder="mydatabasename")
+            file_name = st.selectbox(label="Enter the Database Name(without .json extension)", options=fetchDataBasePath())
             
         
         with col2:

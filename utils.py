@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
-
+import os
 
 
 
@@ -18,6 +18,21 @@ def fetchCategories(file_path):
     category_names = list(json_data[file_path].keys())
 
     return category_names
+
+def fetchDataBasePath():
+    # Ensure the path is a directory
+    if not os.path.isdir("data"):
+        raise ValueError("Provided path is not a directory.")
+
+    # Get all files in the directory
+    all_files = os.listdir("data")
+
+    # Filter out only JSON files
+    json_files = [file for file in all_files if file.endswith('.json')]
+
+    file_names_without_extension = [os.path.splitext(file)[0] for file in json_files]
+
+    return file_names_without_extension
 
 
 
