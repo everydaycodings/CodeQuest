@@ -7,17 +7,17 @@ import utils
 import csv
 
 
-def get_random_question(category_list):
+def get_random_question(category_list, listype):
 
-    with open('data/questions_data.json', 'r', encoding='utf-8') as json_file:
+    with open('data/{}.json'.format(listype), 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
 
     # Check if the "Category" key exists in the data
-    if "Category" not in data:
+    if listype not in data:
         return "Invalid data format. Missing 'Category' key.", None
 
     # Filter the provided category list to include only existing categories
-    existing_categories = [cat for cat in category_list if cat in data["Category"]]
+    existing_categories = [cat for cat in category_list if cat in data[listype]]
 
     if not existing_categories:
         return "No valid categories found.", None
@@ -26,7 +26,7 @@ def get_random_question(category_list):
     random_category_name = random.choice(existing_categories)
 
     # Get the list of questions for the randomly selected category
-    questions_list = data["Category"][random_category_name]
+    questions_list = data[listype][random_category_name]
 
     if not questions_list:
         return f"No questions found for category '{random_category_name}'", None
@@ -57,7 +57,7 @@ def get_random_question(category_list):
 
 
 
-class DumpData():
+class DumpCSVData():
 
     def __init__(self):
         self.api_res = self.fetch_leetcode_question_data()
@@ -65,7 +65,7 @@ class DumpData():
 
     def fetch_leetcode_question_data(self):
 
-        api_url = 'https://leetcode.com/api/problems/all/?listId=rj89nhim'
+        api_url = 'https://leetcode.com/api/problems/all'
 
         return requests.get(api_url)
     
@@ -95,7 +95,7 @@ class DumpData():
 
     def add_new_category(self, existing_data_path, category_name, csv_file_path):
     
-        with open('{}.json'.format(existing_data_path), 'r') as file:
+        with open('data/{}.json'.format(existing_data_path), 'r') as file:
             existing_data = json.load(file)
 
 
@@ -106,11 +106,70 @@ class DumpData():
         existing_data["Category"].update(new_category_data)
 
 
-        with open('{}.json'.format(existing_data_path), 'w') as file:
+        with open('data/{}.json'.format(existing_data_path), 'w') as file:
             json.dump(existing_data, file, indent=2)
     
 
     def run(self, existing_data_path, category_name, csv_file_path):
         self.add_new_category(existing_data_path, category_name, csv_file_path)
 
+
+
+
+class DumpLeetcodeAPIData():
+
+    def __init__(self):
+        pass
     
+
+    def getLeetcodeData(self, api_url):
+        
+        response = requests.get(api_url)
+
+        result_list = []
+        if response.status_code == 200:
+            data = response.json()
+
+            for entry in data["stat_status_pairs"]:
+                question_title = entry["stat"]["question__title"]
+
+                question_id = entry["stat"]["question_id"]
+                title_slug = entry["stat"]["question__title_slug"]
+                difficulty_level = entry["difficulty"]["level"]
+                premium = entry["paid_only"]
+                
+                result = {
+                    "title": question_title,
+                    "question_id": question_id,
+                    "title_slug": title_slug,
+                    "href": "/problems/{}".format(title_slug),
+                    "difficulty_level": difficulty_level,
+                    "premium": premium
+                }
+
+                result_list.append(result)
+
+        return result_list 
+
+
+    def add_new_category(self, existing_data_path, category_name, json_Data):
+    
+        with open('data/{}.json'.format(existing_data_path), 'r') as file:
+            existing_data = json.load(file)
+
+
+        new_category_data = {
+        category_name: json_Data
+        }
+
+        existing_data["Categories"].update(new_category_data)
+
+
+        with open('data/{}.json'.format(existing_data_path), 'w') as file:
+            json.dump(existing_data, file, indent=2)
+    
+
+    def run(self, existing_data_path, category_name, api_url):
+
+        json_data = self.getLeetcodeData(api_url)
+        self.add_new_category(existing_data_path, category_name, json_data)

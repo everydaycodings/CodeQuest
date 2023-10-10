@@ -8,14 +8,14 @@ import time
 
 
 def fetchCategories():
-    json_file_path = 'data/questions_data.json'
+    json_file_path = 'data/Companies.json'
 
     # Read JSON data from file
     with open(json_file_path, 'r', encoding='utf-8') as file:
         json_data = json.load(file)
 
     # Get all category names
-    category_names = list(json_data['Category'].keys())
+    category_names = list(json_data['Companies'].keys())
 
     return category_names
 
