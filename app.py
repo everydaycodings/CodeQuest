@@ -18,9 +18,8 @@ st.set_page_config(
 st.sidebar.title(":blue[CodeQuest Control Panel]")
 st.title(":blue[Welcome To CodeQuest]")
 
-category_list_category = fetchCategories(file_path="Categories")
-category_list_company = fetchCategories("Companies")
-category_list = ["All"] + category_list_category + category_list_company
+
+category_list = fetchCategories(file_path="LeetCodeProblems")
 control_panel_list = ["Random Quest", "Dump Questions"]
 dump_code_category = ["CSV Format", "LeetCode API"]
 
@@ -40,12 +39,7 @@ if control_panel_list[0] in selected_control:
 
     if(st.button("Fetch Random Question")):
 
-        if "All" in selected_categories:
-            question_set = get_random_question(["All"], listype="All", difficulty_level=difficulty_level_selector, is_premium=is_premium)
-        elif selected_categories in category_list_company:
-            question_set = get_random_question(selected_categories, listype="Companies", difficulty_level=difficulty_level_selector, is_premium=is_premium)
-        else:
-            question_set = get_random_question(selected_categories, listype="Categories",
+        question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
                                                difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
         col1, col2, col3, col4 = st.columns(4)
