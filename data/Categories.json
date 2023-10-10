@@ -21139,6 +21139,1896 @@
         "difficulty_level": 1,
         "premium": false
       }
+    ],
+    "Database": [
+      {
+        "title": "Calculate Orders Within Each Interval",
+        "question_id": 3160,
+        "title_slug": "calculate-orders-within-each-interval",
+        "href": "/problems/calculate-orders-within-each-interval",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Rolling Average Steps",
+        "question_id": 3156,
+        "title_slug": "rolling-average-steps",
+        "href": "/problems/rolling-average-steps",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Highest Salaries Difference",
+        "question_id": 3155,
+        "title_slug": "highest-salaries-difference",
+        "href": "/problems/highest-salaries-difference",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Total Traveled Distance",
+        "question_id": 3097,
+        "title_slug": "total-traveled-distance",
+        "href": "/problems/total-traveled-distance",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Election Results",
+        "question_id": 3078,
+        "title_slug": "election-results",
+        "href": "/problems/election-results",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Status of Flight Tickets",
+        "question_id": 3003,
+        "title_slug": "status-of-flight-tickets",
+        "href": "/problems/status-of-flight-tickets",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Flight Occupancy and Waitlist Analysis",
+        "question_id": 3002,
+        "title_slug": "flight-occupancy-and-waitlist-analysis",
+        "href": "/problems/flight-occupancy-and-waitlist-analysis",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Count Occurrences in Text",
+        "question_id": 2885,
+        "title_slug": "count-occurrences-in-text",
+        "href": "/problems/count-occurrences-in-text",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Popularity Percentage",
+        "question_id": 2874,
+        "title_slug": "popularity-percentage",
+        "href": "/problems/popularity-percentage",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Consecutive Transactions with Increasing Amounts",
+        "question_id": 2853,
+        "title_slug": "consecutive-transactions-with-increasing-amounts",
+        "href": "/problems/consecutive-transactions-with-increasing-amounts",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Customers with Maximum Number of Transactions on Consecutive Days",
+        "question_id": 2852,
+        "title_slug": "customers-with-maximum-number-of-transactions-on-consecutive-days",
+        "href": "/problems/customers-with-maximum-number-of-transactions-on-consecutive-days",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Find Active Users",
+        "question_id": 2842,
+        "title_slug": "find-active-users",
+        "href": "/problems/find-active-users",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Bikes Last Time Used ",
+        "question_id": 2841,
+        "title_slug": "bikes-last-time-used",
+        "href": "/problems/bikes-last-time-used",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Immediate Food Delivery III",
+        "question_id": 2840,
+        "title_slug": "immediate-food-delivery-iii",
+        "href": "/problems/immediate-food-delivery-iii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Count Artist Occurrences On Spotify Ranking List",
+        "question_id": 2830,
+        "title_slug": "count-artist-occurrences-on-spotify-ranking-list",
+        "href": "/problems/count-artist-occurrences-on-spotify-ranking-list",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find Latest Salaries",
+        "question_id": 2829,
+        "title_slug": "find-latest-salaries",
+        "href": "/problems/find-latest-salaries",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Concatenate the Name and the Profession",
+        "question_id": 2643,
+        "title_slug": "concatenate-the-name-and-the-profession",
+        "href": "/problems/concatenate-the-name-and-the-profession",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Merge Overlapping Events in the Same Hall",
+        "question_id": 2637,
+        "title_slug": "merge-overlapping-events-in-the-same-hall",
+        "href": "/problems/merge-overlapping-events-in-the-same-hall",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Form a Chemical Bond",
+        "question_id": 2622,
+        "title_slug": "form-a-chemical-bond",
+        "href": "/problems/form-a-chemical-bond",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Customers With Strictly Increasing Purchases",
+        "question_id": 2613,
+        "title_slug": "customers-with-strictly-increasing-purchases",
+        "href": "/problems/customers-with-strictly-increasing-purchases",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Employees With Deductions",
+        "question_id": 2534,
+        "title_slug": "employees-with-deductions",
+        "href": "/problems/employees-with-deductions",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Change Null Values in a Table to the Previous Value",
+        "question_id": 2523,
+        "title_slug": "change-null-values-in-a-table-to-the-previous-value",
+        "href": "/problems/change-null-values-in-a-table-to-the-previous-value",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Sort the Olympic Table",
+        "question_id": 2516,
+        "title_slug": "sort-the-olympic-table",
+        "href": "/problems/sort-the-olympic-table",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Calculate the Influence of Each Salesperson",
+        "question_id": 2515,
+        "title_slug": "calculate-the-influence-of-each-salesperson",
+        "href": "/problems/calculate-the-influence-of-each-salesperson",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Generate the Invoice",
+        "question_id": 2501,
+        "title_slug": "generate-the-invoice",
+        "href": "/problems/generate-the-invoice",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Number of Unique Subjects Taught by Each Teacher",
+        "question_id": 2495,
+        "title_slug": "number-of-unique-subjects-taught-by-each-teacher",
+        "href": "/problems/number-of-unique-subjects-taught-by-each-teacher",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Compute the Rank as a Percentage",
+        "question_id": 2484,
+        "title_slug": "compute-the-rank-as-a-percentage",
+        "href": "/problems/compute-the-rank-as-a-percentage",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "All the Matches of the League",
+        "question_id": 2453,
+        "title_slug": "all-the-matches-of-the-league",
+        "href": "/problems/all-the-matches-of-the-league",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Product Sales Analysis V",
+        "question_id": 2452,
+        "title_slug": "product-sales-analysis-v",
+        "href": "/problems/product-sales-analysis-v",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Product Sales Analysis IV",
+        "question_id": 2451,
+        "title_slug": "product-sales-analysis-iv",
+        "href": "/problems/product-sales-analysis-iv",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The First Day of the Maximum Recorded Degree in Each City",
+        "question_id": 2446,
+        "title_slug": "the-first-day-of-the-maximum-recorded-degree-in-each-city",
+        "href": "/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Arrange Table by Gender",
+        "question_id": 2441,
+        "title_slug": "arrange-table-by-gender",
+        "href": "/problems/arrange-table-by-gender",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Tasks Count in the Weekend",
+        "question_id": 2440,
+        "title_slug": "tasks-count-in-the-weekend",
+        "href": "/problems/tasks-count-in-the-weekend",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Products With Three or More Orders in Two Consecutive Years",
+        "question_id": 2431,
+        "title_slug": "products-with-three-or-more-orders-in-two-consecutive-years",
+        "href": "/problems/products-with-three-or-more-orders-in-two-consecutive-years",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Dynamic Unpivoting of a Table",
+        "question_id": 2382,
+        "title_slug": "dynamic-unpivoting-of-a-table",
+        "href": "/problems/dynamic-unpivoting-of-a-table",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Dynamic Pivoting of a Table",
+        "question_id": 2381,
+        "title_slug": "dynamic-pivoting-of-a-table",
+        "href": "/problems/dynamic-pivoting-of-a-table",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Number of Times a Driver Was a Passenger",
+        "question_id": 2376,
+        "title_slug": "number-of-times-a-driver-was-a-passenger",
+        "href": "/problems/number-of-times-a-driver-was-a-passenger",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Users That Are Eligible for Discount",
+        "question_id": 2371,
+        "title_slug": "the-users-that-are-eligible-for-discount",
+        "href": "/problems/the-users-that-are-eligible-for-discount",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Users With Two Purchases Within Seven Days",
+        "question_id": 2370,
+        "title_slug": "users-with-two-purchases-within-seven-days",
+        "href": "/problems/users-with-two-purchases-within-seven-days",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Number of Users That Are Eligible for Discount",
+        "question_id": 2336,
+        "title_slug": "the-number-of-users-that-are-eligible-for-discount",
+        "href": "/problems/the-number-of-users-that-are-eligible-for-discount",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Finding the Topic of Each Post",
+        "question_id": 2335,
+        "title_slug": "finding-the-topic-of-each-post",
+        "href": "/problems/finding-the-topic-of-each-post",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "The Change in Global Rankings",
+        "question_id": 2315,
+        "title_slug": "the-change-in-global-rankings",
+        "href": "/problems/the-change-in-global-rankings",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Longest Winning Streak",
+        "question_id": 2313,
+        "title_slug": "longest-winning-streak",
+        "href": "/problems/longest-winning-streak",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Order Two Columns Independently",
+        "question_id": 2302,
+        "title_slug": "order-two-columns-independently",
+        "href": "/problems/order-two-columns-independently",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Number of Passengers in Each Bus II",
+        "question_id": 2296,
+        "title_slug": "the-number-of-passengers-in-each-bus-ii",
+        "href": "/problems/the-number-of-passengers-in-each-bus-ii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "The Number of Passengers in Each Bus I",
+        "question_id": 2281,
+        "title_slug": "the-number-of-passengers-in-each-bus-i",
+        "href": "/problems/the-number-of-passengers-in-each-bus-i",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Build the Equation",
+        "question_id": 2253,
+        "title_slug": "build-the-equation",
+        "href": "/problems/build-the-equation",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "The Airport With the Most Traffic",
+        "question_id": 2252,
+        "title_slug": "the-airport-with-the-most-traffic",
+        "href": "/problems/the-airport-with-the-most-traffic",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Drop Type 1 Orders for Customers With Type 0 Orders",
+        "question_id": 2224,
+        "title_slug": "drop-type-1-orders-for-customers-with-type-0-orders",
+        "href": "/problems/drop-type-1-orders-for-customers-with-type-0-orders",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Number of Rich Customers",
+        "question_id": 2223,
+        "title_slug": "the-number-of-rich-customers",
+        "href": "/problems/the-number-of-rich-customers",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "The Winner University",
+        "question_id": 2214,
+        "title_slug": "the-winner-university",
+        "href": "/problems/the-winner-university",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Account Balance",
+        "question_id": 2208,
+        "title_slug": "account-balance",
+        "href": "/problems/account-balance",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Category of Each Member in the Store",
+        "question_id": 2194,
+        "title_slug": "the-category-of-each-member-in-the-store",
+        "href": "/problems/the-category-of-each-member-in-the-store",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Accepted Candidates From the Interviews",
+        "question_id": 2185,
+        "title_slug": "accepted-candidates-from-the-interviews",
+        "href": "/problems/accepted-candidates-from-the-interviews",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Low-Quality Problems",
+        "question_id": 2172,
+        "title_slug": "low-quality-problems",
+        "href": "/problems/low-quality-problems",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Number of Accounts That Did Not Stream",
+        "question_id": 2167,
+        "title_slug": "number-of-accounts-that-did-not-stream",
+        "href": "/problems/number-of-accounts-that-did-not-stream",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Number of Seniors and Juniors to Join the Company II",
+        "question_id": 2158,
+        "title_slug": "the-number-of-seniors-and-juniors-to-join-the-company-ii",
+        "href": "/problems/the-number-of-seniors-and-juniors-to-join-the-company-ii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "The Number of Seniors and Juniors to Join the Company",
+        "question_id": 2152,
+        "title_slug": "the-number-of-seniors-and-juniors-to-join-the-company",
+        "href": "/problems/the-number-of-seniors-and-juniors-to-join-the-company",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Count the Number of Experiments",
+        "question_id": 2143,
+        "title_slug": "count-the-number-of-experiments",
+        "href": "/problems/count-the-number-of-experiments",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find Cutoff Score for Each School",
+        "question_id": 2136,
+        "title_slug": "find-cutoff-score-for-each-school",
+        "href": "/problems/find-cutoff-score-for-each-school",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Employees Whose Manager Left the Company",
+        "question_id": 2127,
+        "title_slug": "employees-whose-manager-left-the-company",
+        "href": "/problems/employees-whose-manager-left-the-company",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "First and Last Call On the Same Day",
+        "question_id": 2120,
+        "title_slug": "first-and-last-call-on-the-same-day",
+        "href": "/problems/first-and-last-call-on-the-same-day",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Employees With Missing Information",
+        "question_id": 2110,
+        "title_slug": "employees-with-missing-information",
+        "href": "/problems/employees-with-missing-information",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "All the Pairs With the Maximum Number of Common Followers",
+        "question_id": 2098,
+        "title_slug": "all-the-pairs-with-the-maximum-number-of-common-followers",
+        "href": "/problems/all-the-pairs-with-the-maximum-number-of-common-followers",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Strong Friendship",
+        "question_id": 2097,
+        "title_slug": "strong-friendship",
+        "href": "/problems/strong-friendship",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Users That Actively Request Confirmation Messages",
+        "question_id": 2092,
+        "title_slug": "users-that-actively-request-confirmation-messages",
+        "href": "/problems/users-that-actively-request-confirmation-messages",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Confirmation Rate",
+        "question_id": 2087,
+        "title_slug": "confirmation-rate",
+        "href": "/problems/confirmation-rate",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Leetcodify Similar Friends",
+        "question_id": 2064,
+        "title_slug": "leetcodify-similar-friends",
+        "href": "/problems/leetcodify-similar-friends",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Leetcodify Friends Recommendations",
+        "question_id": 2063,
+        "title_slug": "leetcodify-friends-recommendations",
+        "href": "/problems/leetcodify-friends-recommendations",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Count Salary Categories",
+        "question_id": 2057,
+        "title_slug": "count-salary-categories",
+        "href": "/problems/count-salary-categories",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Page Recommendations II",
+        "question_id": 2046,
+        "title_slug": "page-recommendations-ii",
+        "href": "/problems/page-recommendations-ii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "The Latest Login in 2020",
+        "question_id": 2041,
+        "title_slug": "the-latest-login-in-2020",
+        "href": "/problems/the-latest-login-in-2020",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Group Employees of the Same Salary",
+        "question_id": 2030,
+        "title_slug": "group-employees-of-the-same-salary",
+        "href": "/problems/group-employees-of-the-same-salary",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Calculate Special Bonus",
+        "question_id": 2024,
+        "title_slug": "calculate-special-bonus",
+        "href": "/problems/calculate-special-bonus",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Orders With Maximum Quantity Above Average",
+        "question_id": 2014,
+        "title_slug": "orders-with-maximum-quantity-above-average",
+        "href": "/problems/orders-with-maximum-quantity-above-average",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Convert Date Format",
+        "question_id": 2004,
+        "title_slug": "convert-date-format",
+        "href": "/problems/convert-date-format",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Suspicious Bank Accounts",
+        "question_id": 1998,
+        "title_slug": "suspicious-bank-accounts",
+        "href": "/problems/suspicious-bank-accounts",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "League Statistics",
+        "question_id": 1991,
+        "title_slug": "league-statistics",
+        "href": "/problems/league-statistics",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Maximum Transaction Each Day",
+        "question_id": 1981,
+        "title_slug": "maximum-transaction-each-day",
+        "href": "/problems/maximum-transaction-each-day",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find Customers With Positive Revenue this Year",
+        "question_id": 1974,
+        "title_slug": "find-customers-with-positive-revenue-this-year",
+        "href": "/problems/find-customers-with-positive-revenue-this-year",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find Interview Candidates",
+        "question_id": 1964,
+        "title_slug": "find-interview-candidates",
+        "href": "/problems/find-interview-candidates",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Ad-Free Sessions",
+        "question_id": 1958,
+        "title_slug": "ad-free-sessions",
+        "href": "/problems/ad-free-sessions",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Rearrange Products Table",
+        "question_id": 1948,
+        "title_slug": "rearrange-products-table",
+        "href": "/problems/rearrange-products-table",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Primary Department for Each Employee",
+        "question_id": 1942,
+        "title_slug": "primary-department-for-each-employee",
+        "href": "/problems/primary-department-for-each-employee",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Grand Slam Titles",
+        "question_id": 1932,
+        "title_slug": "grand-slam-titles",
+        "href": "/problems/grand-slam-titles",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Product's Price for Each Store",
+        "question_id": 1926,
+        "title_slug": "products-price-for-each-store",
+        "href": "/problems/products-price-for-each-store",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find the Subtasks That Did Not Execute",
+        "question_id": 1914,
+        "title_slug": "find-the-subtasks-that-did-not-execute",
+        "href": "/problems/find-the-subtasks-that-did-not-execute",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Recyclable and Low Fat Products",
+        "question_id": 1908,
+        "title_slug": "recyclable-and-low-fat-products",
+        "href": "/problems/recyclable-and-low-fat-products",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Leetflex Banned Accounts",
+        "question_id": 1898,
+        "title_slug": "leetflex-banned-accounts",
+        "href": "/problems/leetflex-banned-accounts",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find Total Time Spent by Each Employee",
+        "question_id": 1892,
+        "title_slug": "find-total-time-spent-by-each-employee",
+        "href": "/problems/find-total-time-spent-by-each-employee",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "The Number of Employees Which Report to Each Employee",
+        "question_id": 1882,
+        "title_slug": "the-number-of-employees-which-report-to-each-employee",
+        "href": "/problems/the-number-of-employees-which-report-to-each-employee",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Find Followers Count",
+        "question_id": 1877,
+        "title_slug": "find-followers-count",
+        "href": "/problems/find-followers-count",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Count Apples and Oranges",
+        "question_id": 1862,
+        "title_slug": "count-apples-and-oranges",
+        "href": "/problems/count-apples-and-oranges",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Biggest Window Between Visits",
+        "question_id": 1852,
+        "title_slug": "biggest-window-between-visits",
+        "href": "/problems/biggest-window-between-visits",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Number of Calls Between Two Persons",
+        "question_id": 1842,
+        "title_slug": "number-of-calls-between-two-persons",
+        "href": "/problems/number-of-calls-between-two-persons",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Daily Leads and Partners",
+        "question_id": 1837,
+        "title_slug": "daily-leads-and-partners",
+        "href": "/problems/daily-leads-and-partners",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Invalid Tweets",
+        "question_id": 1827,
+        "title_slug": "invalid-tweets",
+        "href": "/problems/invalid-tweets",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Product's Worth Over Invoices",
+        "question_id": 1821,
+        "title_slug": "products-worth-over-invoices",
+        "href": "/problems/products-worth-over-invoices",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Fix Names in a Table",
+        "question_id": 1811,
+        "title_slug": "fix-names-in-a-table",
+        "href": "/problems/fix-names-in-a-table",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Average Time of Process per Machine",
+        "question_id": 1801,
+        "title_slug": "average-time-of-process-per-machine",
+        "href": "/problems/average-time-of-process-per-machine",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Hopper Company Queries III",
+        "question_id": 1795,
+        "title_slug": "hopper-company-queries-iii",
+        "href": "/problems/hopper-company-queries-iii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Hopper Company Queries II",
+        "question_id": 1785,
+        "title_slug": "hopper-company-queries-ii",
+        "href": "/problems/hopper-company-queries-ii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Hopper Company Queries I",
+        "question_id": 1779,
+        "title_slug": "hopper-company-queries-i",
+        "href": "/problems/hopper-company-queries-i",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Percentage of Users Attended a Contest",
+        "question_id": 1773,
+        "title_slug": "percentage-of-users-attended-a-contest",
+        "href": "/problems/percentage-of-users-attended-a-contest",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "All Valid Triplets That Can Represent a Country",
+        "question_id": 1763,
+        "title_slug": "all-valid-triplets-that-can-represent-a-country",
+        "href": "/problems/all-valid-triplets-that-can-represent-a-country",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find the Missing IDs",
+        "question_id": 1759,
+        "title_slug": "find-the-missing-ids",
+        "href": "/problems/find-the-missing-ids",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Sellers With No Sales",
+        "question_id": 1749,
+        "title_slug": "sellers-with-no-sales",
+        "href": "/problems/sellers-with-no-sales",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "The Most Frequently Ordered Products for Each Customer",
+        "question_id": 1735,
+        "title_slug": "the-most-frequently-ordered-products-for-each-customer",
+        "href": "/problems/the-most-frequently-ordered-products-for-each-customer",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Bank Account Summary II",
+        "question_id": 1734,
+        "title_slug": "bank-account-summary-ii",
+        "href": "/problems/bank-account-summary-ii",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Customer Who Visited but Did Not Make Any Transactions",
+        "question_id": 1724,
+        "title_slug": "customer-who-visited-but-did-not-make-any-transactions",
+        "href": "/problems/customer-who-visited-but-did-not-make-any-transactions",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Warehouse Manager",
+        "question_id": 1718,
+        "title_slug": "warehouse-manager",
+        "href": "/problems/warehouse-manager",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Unique Orders and Customers Per Month",
+        "question_id": 1712,
+        "title_slug": "unique-orders-and-customers-per-month",
+        "href": "/problems/unique-orders-and-customers-per-month",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Bank Account Summary",
+        "question_id": 1702,
+        "title_slug": "bank-account-summary",
+        "href": "/problems/bank-account-summary",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "The Most Recent Orders for Each Product",
+        "question_id": 1688,
+        "title_slug": "the-most-recent-orders-for-each-product",
+        "href": "/problems/the-most-recent-orders-for-each-product",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Fix Product Name Format",
+        "question_id": 1686,
+        "title_slug": "fix-product-name-format",
+        "href": "/problems/fix-product-name-format",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "The Most Recent Three Orders",
+        "question_id": 1671,
+        "title_slug": "the-most-recent-three-orders",
+        "href": "/problems/the-most-recent-three-orders",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Patients With a Condition",
+        "question_id": 1670,
+        "title_slug": "patients-with-a-condition",
+        "href": "/problems/patients-with-a-condition",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Find Users With Valid E-Mails",
+        "question_id": 1664,
+        "title_slug": "find-users-with-valid-e-mails",
+        "href": "/problems/find-users-with-valid-e-mails",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Customer Order Frequency",
+        "question_id": 1654,
+        "title_slug": "customer-order-frequency",
+        "href": "/problems/customer-order-frequency",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Countries You Can Safely Invest In",
+        "question_id": 1641,
+        "title_slug": "countries-you-can-safely-invest-in",
+        "href": "/problems/countries-you-can-safely-invest-in",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Friendly Movies Streamed Last Month",
+        "question_id": 1639,
+        "title_slug": "friendly-movies-streamed-last-month",
+        "href": "/problems/friendly-movies-streamed-last-month",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Group Sold Products By The Date",
+        "question_id": 1625,
+        "title_slug": "group-sold-products-by-the-date",
+        "href": "/problems/group-sold-products-by-the-date",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Sales by Day of the Week",
+        "question_id": 1623,
+        "title_slug": "sales-by-day-of-the-week",
+        "href": "/problems/sales-by-day-of-the-week",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Calculate Salaries",
+        "question_id": 1608,
+        "title_slug": "calculate-salaries",
+        "href": "/problems/calculate-salaries",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Rectangles Area",
+        "question_id": 1607,
+        "title_slug": "rectangles-area",
+        "href": "/problems/rectangles-area",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Active Users",
+        "question_id": 1579,
+        "title_slug": "active-users",
+        "href": "/problems/active-users",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Apples & Oranges",
+        "question_id": 1578,
+        "title_slug": "apples-oranges",
+        "href": "/problems/apples-oranges",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Evaluate Boolean Expression",
+        "question_id": 1565,
+        "title_slug": "evaluate-boolean-expression",
+        "href": "/problems/evaluate-boolean-expression",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Create a Session Bar Chart",
+        "question_id": 1564,
+        "title_slug": "create-a-session-bar-chart",
+        "href": "/problems/create-a-session-bar-chart",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "NPV Queries",
+        "question_id": 1551,
+        "title_slug": "npv-queries",
+        "href": "/problems/npv-queries",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find the Quiet Students in All Exams",
+        "question_id": 1546,
+        "title_slug": "find-the-quiet-students-in-all-exams",
+        "href": "/problems/find-the-quiet-students-in-all-exams",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Top Travellers",
+        "question_id": 1541,
+        "title_slug": "top-travellers",
+        "href": "/problems/top-travellers",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Customers Who Bought Products A and B but Not C",
+        "question_id": 1536,
+        "title_slug": "customers-who-bought-products-a-and-b-but-not-c",
+        "href": "/problems/customers-who-bought-products-a-and-b-but-not-c",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Capital Gain/Loss",
+        "question_id": 1523,
+        "title_slug": "capital-gainloss",
+        "href": "/problems/capital-gainloss",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Total Sales Amount by Year",
+        "question_id": 1518,
+        "title_slug": "total-sales-amount-by-year",
+        "href": "/problems/total-sales-amount-by-year",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Replace Employee ID With The Unique Identifier",
+        "question_id": 1509,
+        "title_slug": "replace-employee-id-with-the-unique-identifier",
+        "href": "/problems/replace-employee-id-with-the-unique-identifier",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Get the Second Most Recent Activity",
+        "question_id": 1504,
+        "title_slug": "get-the-second-most-recent-activity",
+        "href": "/problems/get-the-second-most-recent-activity",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Number of Trusted Contacts of a Customer",
+        "question_id": 1495,
+        "title_slug": "number-of-trusted-contacts-of-a-customer",
+        "href": "/problems/number-of-trusted-contacts-of-a-customer",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Activity Participants",
+        "question_id": 1494,
+        "title_slug": "activity-participants",
+        "href": "/problems/activity-participants",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Students With Invalid Departments",
+        "question_id": 1481,
+        "title_slug": "students-with-invalid-departments",
+        "href": "/problems/students-with-invalid-departments",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Movie Rating",
+        "question_id": 1480,
+        "title_slug": "movie-rating",
+        "href": "/problems/movie-rating",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Number of Transactions per Visit",
+        "question_id": 1467,
+        "title_slug": "number-of-transactions-per-visit",
+        "href": "/problems/number-of-transactions-per-visit",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "List the Products Ordered in a Period",
+        "question_id": 1462,
+        "title_slug": "list-the-products-ordered-in-a-period",
+        "href": "/problems/list-the-products-ordered-in-a-period",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Ads Performance",
+        "question_id": 1453,
+        "title_slug": "ads-performance",
+        "href": "/problems/ads-performance",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Restaurant Growth",
+        "question_id": 1452,
+        "title_slug": "restaurant-growth",
+        "href": "/problems/restaurant-growth",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Running Total for Different Genders",
+        "question_id": 1439,
+        "title_slug": "running-total-for-different-genders",
+        "href": "/problems/running-total-for-different-genders",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find the Team Size",
+        "question_id": 1438,
+        "title_slug": "find-the-team-size",
+        "href": "/problems/find-the-team-size",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Weather Type in Each Country",
+        "question_id": 1425,
+        "title_slug": "weather-type-in-each-country",
+        "href": "/problems/weather-type-in-each-country",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Find the Start and End Number of Continuous Ranges",
+        "question_id": 1420,
+        "title_slug": "find-the-start-and-end-number-of-continuous-ranges",
+        "href": "/problems/find-the-start-and-end-number-of-continuous-ranges",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Students and Examinations",
+        "question_id": 1415,
+        "title_slug": "students-and-examinations",
+        "href": "/problems/students-and-examinations",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "All People Report to the Given Manager",
+        "question_id": 1405,
+        "title_slug": "all-people-report-to-the-given-manager",
+        "href": "/problems/all-people-report-to-the-given-manager",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Page Recommendations",
+        "question_id": 1399,
+        "title_slug": "page-recommendations",
+        "href": "/problems/page-recommendations",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Average Selling Price",
+        "question_id": 1390,
+        "title_slug": "average-selling-price",
+        "href": "/problems/average-selling-price",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Number of Comments per Post",
+        "question_id": 1377,
+        "title_slug": "number-of-comments-per-post",
+        "href": "/problems/number-of-comments-per-post",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Report Contiguous Dates",
+        "question_id": 1357,
+        "title_slug": "report-contiguous-dates",
+        "href": "/problems/report-contiguous-dates",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Team Scores in Football Tournament",
+        "question_id": 1339,
+        "title_slug": "team-scores-in-football-tournament",
+        "href": "/problems/team-scores-in-football-tournament",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Queries Quality and Percentage",
+        "question_id": 1338,
+        "title_slug": "queries-quality-and-percentage",
+        "href": "/problems/queries-quality-and-percentage",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Monthly Transactions II",
+        "question_id": 1328,
+        "title_slug": "monthly-transactions-ii",
+        "href": "/problems/monthly-transactions-ii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Last Person to Fit in the Bus",
+        "question_id": 1327,
+        "title_slug": "last-person-to-fit-in-the-bus",
+        "href": "/problems/last-person-to-fit-in-the-bus",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Tournament Winners",
+        "question_id": 1318,
+        "title_slug": "tournament-winners",
+        "href": "/problems/tournament-winners",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Monthly Transactions I",
+        "question_id": 1317,
+        "title_slug": "monthly-transactions-i",
+        "href": "/problems/monthly-transactions-i",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Reformat Department Table",
+        "question_id": 1301,
+        "title_slug": "reformat-department-table",
+        "href": "/problems/reformat-department-table",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Immediate Food Delivery II",
+        "question_id": 1292,
+        "title_slug": "immediate-food-delivery-ii",
+        "href": "/problems/immediate-food-delivery-ii",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Immediate Food Delivery I",
+        "question_id": 1291,
+        "title_slug": "immediate-food-delivery-i",
+        "href": "/problems/immediate-food-delivery-i",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Product Price at a Given Date",
+        "question_id": 1278,
+        "title_slug": "product-price-at-a-given-date",
+        "href": "/problems/product-price-at-a-given-date",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Market Analysis II",
+        "question_id": 1269,
+        "title_slug": "market-analysis-ii",
+        "href": "/problems/market-analysis-ii",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Market Analysis I",
+        "question_id": 1268,
+        "title_slug": "market-analysis-i",
+        "href": "/problems/market-analysis-i",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Article Views II",
+        "question_id": 1259,
+        "title_slug": "article-views-ii",
+        "href": "/problems/article-views-ii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Article Views I",
+        "question_id": 1258,
+        "title_slug": "article-views-i",
+        "href": "/problems/article-views-i",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "User Activity for the Past 30 Days II",
+        "question_id": 1246,
+        "title_slug": "user-activity-for-the-past-30-days-ii",
+        "href": "/problems/user-activity-for-the-past-30-days-ii",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "User Activity for the Past 30 Days I",
+        "question_id": 1245,
+        "title_slug": "user-activity-for-the-past-30-days-i",
+        "href": "/problems/user-activity-for-the-past-30-days-i",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Reported Posts II",
+        "question_id": 1237,
+        "title_slug": "reported-posts-ii",
+        "href": "/problems/reported-posts-ii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "User Purchase Platform",
+        "question_id": 1226,
+        "title_slug": "user-purchase-platform",
+        "href": "/problems/user-purchase-platform",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Active Businesses",
+        "question_id": 1225,
+        "title_slug": "active-businesses",
+        "href": "/problems/active-businesses",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Reported Posts",
+        "question_id": 1215,
+        "title_slug": "reported-posts",
+        "href": "/problems/reported-posts",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Highest Grade For Each Student",
+        "question_id": 1214,
+        "title_slug": "highest-grade-for-each-student",
+        "href": "/problems/highest-grade-for-each-student",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "New Users Daily Count",
+        "question_id": 1204,
+        "title_slug": "new-users-daily-count",
+        "href": "/problems/new-users-daily-count",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Unpopular Books",
+        "question_id": 1198,
+        "title_slug": "unpopular-books",
+        "href": "/problems/unpopular-books",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Game Play Analysis V",
+        "question_id": 1193,
+        "title_slug": "game-play-analysis-v",
+        "href": "/problems/game-play-analysis-v",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Game Play Analysis IV",
+        "question_id": 1182,
+        "title_slug": "game-play-analysis-iv",
+        "href": "/problems/game-play-analysis-iv",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Game Play Analysis III",
+        "question_id": 1181,
+        "title_slug": "game-play-analysis-iii",
+        "href": "/problems/game-play-analysis-iii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Game Play Analysis II",
+        "question_id": 1180,
+        "title_slug": "game-play-analysis-ii",
+        "href": "/problems/game-play-analysis-ii",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Game Play Analysis I",
+        "question_id": 1179,
+        "title_slug": "game-play-analysis-i",
+        "href": "/problems/game-play-analysis-i",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Sales Analysis III",
+        "question_id": 1174,
+        "title_slug": "sales-analysis-iii",
+        "href": "/problems/sales-analysis-iii",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Sales Analysis II",
+        "question_id": 1173,
+        "title_slug": "sales-analysis-ii",
+        "href": "/problems/sales-analysis-ii",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Sales Analysis I",
+        "question_id": 1172,
+        "title_slug": "sales-analysis-i",
+        "href": "/problems/sales-analysis-i",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Project Employees III",
+        "question_id": 1163,
+        "title_slug": "project-employees-iii",
+        "href": "/problems/project-employees-iii",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Project Employees II",
+        "question_id": 1162,
+        "title_slug": "project-employees-ii",
+        "href": "/problems/project-employees-ii",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Project Employees I",
+        "question_id": 1161,
+        "title_slug": "project-employees-i",
+        "href": "/problems/project-employees-i",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Product Sales Analysis III",
+        "question_id": 1155,
+        "title_slug": "product-sales-analysis-iii",
+        "href": "/problems/product-sales-analysis-iii",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Product Sales Analysis II",
+        "question_id": 1154,
+        "title_slug": "product-sales-analysis-ii",
+        "href": "/problems/product-sales-analysis-ii",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Product Sales Analysis I",
+        "question_id": 1153,
+        "title_slug": "product-sales-analysis-i",
+        "href": "/problems/product-sales-analysis-i",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Actors and Directors Who Cooperated At Least Three Times",
+        "question_id": 1136,
+        "title_slug": "actors-and-directors-who-cooperated-at-least-three-times",
+        "href": "/problems/actors-and-directors-who-cooperated-at-least-three-times",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Customers Who Bought All Products",
+        "question_id": 1135,
+        "title_slug": "customers-who-bought-all-products",
+        "href": "/problems/customers-who-bought-all-products",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Swap Salary",
+        "question_id": 627,
+        "title_slug": "swap-salary",
+        "href": "/problems/swap-salary",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Exchange Seats",
+        "question_id": 626,
+        "title_slug": "exchange-seats",
+        "href": "/problems/exchange-seats",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Not Boring Movies",
+        "question_id": 620,
+        "title_slug": "not-boring-movies",
+        "href": "/problems/not-boring-movies",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Biggest Single Number",
+        "question_id": 619,
+        "title_slug": "biggest-single-number",
+        "href": "/problems/biggest-single-number",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Students Report By Geography",
+        "question_id": 618,
+        "title_slug": "students-report-by-geography",
+        "href": "/problems/students-report-by-geography",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Average Salary: Departments VS Company",
+        "question_id": 615,
+        "title_slug": "average-salary-departments-vs-company",
+        "href": "/problems/average-salary-departments-vs-company",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Second Degree Follower",
+        "question_id": 614,
+        "title_slug": "second-degree-follower",
+        "href": "/problems/second-degree-follower",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Shortest Distance in a Line",
+        "question_id": 613,
+        "title_slug": "shortest-distance-in-a-line",
+        "href": "/problems/shortest-distance-in-a-line",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Shortest Distance in a Plane",
+        "question_id": 612,
+        "title_slug": "shortest-distance-in-a-plane",
+        "href": "/problems/shortest-distance-in-a-plane",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Triangle Judgement",
+        "question_id": 610,
+        "title_slug": "triangle-judgement",
+        "href": "/problems/triangle-judgement",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Tree Node",
+        "question_id": 608,
+        "title_slug": "tree-node",
+        "href": "/problems/tree-node",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Sales Person",
+        "question_id": 607,
+        "title_slug": "sales-person",
+        "href": "/problems/sales-person",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Consecutive Available Seats",
+        "question_id": 603,
+        "title_slug": "consecutive-available-seats",
+        "href": "/problems/consecutive-available-seats",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Friend Requests II: Who Has the Most Friends",
+        "question_id": 602,
+        "title_slug": "friend-requests-ii-who-has-the-most-friends",
+        "href": "/problems/friend-requests-ii-who-has-the-most-friends",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Human Traffic of Stadium",
+        "question_id": 601,
+        "title_slug": "human-traffic-of-stadium",
+        "href": "/problems/human-traffic-of-stadium",
+        "difficulty_level": 3,
+        "premium": false
+      },
+      {
+        "title": "Friend Requests I: Overall Acceptance Rate",
+        "question_id": 597,
+        "title_slug": "friend-requests-i-overall-acceptance-rate",
+        "href": "/problems/friend-requests-i-overall-acceptance-rate",
+        "difficulty_level": 1,
+        "premium": true
+      },
+      {
+        "title": "Classes More Than 5 Students",
+        "question_id": 596,
+        "title_slug": "classes-more-than-5-students",
+        "href": "/problems/classes-more-than-5-students",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Big Countries",
+        "question_id": 595,
+        "title_slug": "big-countries",
+        "href": "/problems/big-countries",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Customer Placing the Largest Number of Orders",
+        "question_id": 586,
+        "title_slug": "customer-placing-the-largest-number-of-orders",
+        "href": "/problems/customer-placing-the-largest-number-of-orders",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Investments in 2016",
+        "question_id": 585,
+        "title_slug": "investments-in-2016",
+        "href": "/problems/investments-in-2016",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Find Customer Referee",
+        "question_id": 584,
+        "title_slug": "find-customer-referee",
+        "href": "/problems/find-customer-referee",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Count Student Number in Departments",
+        "question_id": 580,
+        "title_slug": "count-student-number-in-departments",
+        "href": "/problems/count-student-number-in-departments",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find Cumulative Salary of an Employee",
+        "question_id": 579,
+        "title_slug": "find-cumulative-salary-of-an-employee",
+        "href": "/problems/find-cumulative-salary-of-an-employee",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Get Highest Answer Rate Question",
+        "question_id": 578,
+        "title_slug": "get-highest-answer-rate-question",
+        "href": "/problems/get-highest-answer-rate-question",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Employee Bonus",
+        "question_id": 577,
+        "title_slug": "employee-bonus",
+        "href": "/problems/employee-bonus",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Winning Candidate",
+        "question_id": 574,
+        "title_slug": "winning-candidate",
+        "href": "/problems/winning-candidate",
+        "difficulty_level": 2,
+        "premium": true
+      },
+      {
+        "title": "Find Median Given Frequency of Numbers",
+        "question_id": 571,
+        "title_slug": "find-median-given-frequency-of-numbers",
+        "href": "/problems/find-median-given-frequency-of-numbers",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Managers with at Least 5 Direct Reports",
+        "question_id": 570,
+        "title_slug": "managers-with-at-least-5-direct-reports",
+        "href": "/problems/managers-with-at-least-5-direct-reports",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Median Employee Salary",
+        "question_id": 569,
+        "title_slug": "median-employee-salary",
+        "href": "/problems/median-employee-salary",
+        "difficulty_level": 3,
+        "premium": true
+      },
+      {
+        "title": "Trips and Users",
+        "question_id": 262,
+        "title_slug": "trips-and-users",
+        "href": "/problems/trips-and-users",
+        "difficulty_level": 3,
+        "premium": false
+      },
+      {
+        "title": "Rising Temperature",
+        "question_id": 197,
+        "title_slug": "rising-temperature",
+        "href": "/problems/rising-temperature",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Delete Duplicate Emails",
+        "question_id": 196,
+        "title_slug": "delete-duplicate-emails",
+        "href": "/problems/delete-duplicate-emails",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Department Top Three Salaries",
+        "question_id": 185,
+        "title_slug": "department-top-three-salaries",
+        "href": "/problems/department-top-three-salaries",
+        "difficulty_level": 3,
+        "premium": false
+      },
+      {
+        "title": "Department Highest Salary",
+        "question_id": 184,
+        "title_slug": "department-highest-salary",
+        "href": "/problems/department-highest-salary",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Customers Who Never Order",
+        "question_id": 183,
+        "title_slug": "customers-who-never-order",
+        "href": "/problems/customers-who-never-order",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Duplicate Emails",
+        "question_id": 182,
+        "title_slug": "duplicate-emails",
+        "href": "/problems/duplicate-emails",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Employees Earning More Than Their Managers",
+        "question_id": 181,
+        "title_slug": "employees-earning-more-than-their-managers",
+        "href": "/problems/employees-earning-more-than-their-managers",
+        "difficulty_level": 1,
+        "premium": false
+      },
+      {
+        "title": "Consecutive Numbers",
+        "question_id": 180,
+        "title_slug": "consecutive-numbers",
+        "href": "/problems/consecutive-numbers",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Rank Scores",
+        "question_id": 178,
+        "title_slug": "rank-scores",
+        "href": "/problems/rank-scores",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Nth Highest Salary",
+        "question_id": 177,
+        "title_slug": "nth-highest-salary",
+        "href": "/problems/nth-highest-salary",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Second Highest Salary",
+        "question_id": 176,
+        "title_slug": "second-highest-salary",
+        "href": "/problems/second-highest-salary",
+        "difficulty_level": 2,
+        "premium": false
+      },
+      {
+        "title": "Combine Two Tables",
+        "question_id": 175,
+        "title_slug": "combine-two-tables",
+        "href": "/problems/combine-two-tables",
+        "difficulty_level": 1,
+        "premium": false
+      }
     ]
   }
 }
