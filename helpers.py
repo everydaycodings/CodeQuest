@@ -7,6 +7,21 @@ import utils
 import csv
 import pandas as pd
 
+
+def returnMap(question_id, title_slug, title, href, difficulty_level, premium):
+
+    result = {
+        "question_id": question_id ,
+        "title_slug": title_slug,
+        "title": title,
+        "href":href ,
+        "difficulty_level": difficulty_level,
+        "premium": premium
+    }
+
+    return result
+
+
 def get_random_question(category_list, listype, difficulty_level, is_premium):
 
     if difficulty_level == "Random":
@@ -45,31 +60,30 @@ def get_random_question(category_list, listype, difficulty_level, is_premium):
         # Choose a random question from the list
         random_question = random.choice(questions_list)
        # print(random_question)
-
         if random_question != None:
-            if difficulty_level == 0 and is_premium == "Random":
 
-                result = {
-                    "question_id": random_question["question_id"],
-                    "title_slug": random_question["title_slug"],
-                    "title": random_question["title"],
-                    "href": random_question["href"],
-                    "difficulty_level": random_question["difficulty_level"],
-                    "premium": random_question["premium"]
-                }
-                return result
+            question_id = random_question["question_id"]
+            title_slug = random_question["title_slug"]
+            title = random_question["title"]
+            href = random_question["href"]
+            difficultyLevel = random_question["difficulty_level"]
+            premium = random_question["premium"]
+
+
+            if difficulty_level == 0 and is_premium == "Random":
+                return returnMap(question_id, title_slug, title, href, difficultyLevel, premium)
 
             elif random_question["difficulty_level"] == difficulty_level and random_question["premium"] == is_premium:
 
-                result = {
-                    "question_id": random_question["question_id"],
-                    "title_slug": random_question["title_slug"],
-                    "title": random_question["title"],
-                    "href": random_question["href"],
-                    "difficulty_level": random_question["difficulty_level"],
-                    "premium": random_question["premium"]
-                }
-                return result
+                return returnMap(question_id, title_slug, title, href, difficultyLevel, premium)
+
+            elif( difficulty_level == 0 and is_premium != "Random"):
+                if(random_question["premium"] == is_premium):
+                    return returnMap(question_id, title_slug, title, href, difficultyLevel, premium)
+
+            elif (is_premium == "Random" and difficulty_level != 0):
+                if (random_question["difficulty_level"] == difficulty_level):
+                    return returnMap(question_id, title_slug, title, href, difficulty_level, premium)
 
         else:
             result = {

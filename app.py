@@ -39,8 +39,9 @@ if control_panel_list[0] in selected_control:
 
     if(st.button("Fetch Random Question")):
 
-        question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
-                                               difficulty_level=difficulty_level_selector, is_premium=is_premium)
+        with st.spinner("Fetching Question.."):
+            question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
+                                                   difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
         col1, col2, col3, col4 = st.columns(4)
 
