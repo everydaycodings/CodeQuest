@@ -1,6 +1,6 @@
 import streamlit as st
 from utils import fetchCategories
-from helpers import get_random_question, DumpLeetcodeAPIData
+from helpers import get_random_question, DumpLeetcodeAPIData, DumpCSVData
 
 
 import streamlit as st
@@ -77,14 +77,41 @@ if control_panel_list[0] in selected_control:
 if control_panel_list[1] in selected_control:
     st.subheader("Control Pannel")
 
-    format_selected = st.selectbox(label="Select your format", options=dump_code_category, index=1, key=33)
+    format_selected = st.selectbox(label="Select your format", options=dump_code_category, index=0, key=33)
 
     st.divider()
     col1, col2 = st.columns(2)
+
+    if dump_code_category[0] in  format_selected:
+        with col1:
+            st.markdown("##### Format Selected ")
+            st.markdown("###### {}".format(format_selected))
+            st.text(" ")
+            st.text(" ")
+            st.text(" ")
+            st.text(" ")
+            file_name = st.text_input(label="Enter the Database Name(without .json extension)", placeholder="mydatabasename")
+            
+        
+        with col2:
+            uplodedfile = st.file_uploader(label="Upload Your csv file: ")
+            st.text(" ")
+            indexname = st.text_input(label="Enter the Category Name", placeholder="Google")
+        
+        if st.button("Dump"):
+            
+            dump = DumpCSVData()
+
+            dump.run(file_name, indexname, uplodedfile)
+            st.success("Added Questions to {}.json".format(file_name))
+
+
+
     if dump_code_category[1] in  format_selected:
         with col1:
             st.markdown("##### Format Selected ")
             st.markdown("###### {}".format(format_selected))
+            st.text(" ")
             st.text(" ")
             file_name = st.text_input(label="Enter the Database Name(without .json extension)", placeholder="mydatabasename")
             
@@ -100,3 +127,4 @@ if control_panel_list[1] in selected_control:
 
             dump.run(file_name, indexname, leetcodeApi)
             st.success("Added Questions to {}.json".format(file_name))
+

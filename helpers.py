@@ -5,7 +5,7 @@ import json
 import time
 import utils
 import csv
-
+import pandas as pd
 
 def get_random_question(category_list, listype):
 
@@ -70,24 +70,24 @@ class DumpCSVData():
         return requests.get(api_url)
     
     
-    def extract_columns(self, csv_file_path):
+    def extract_columns(self, csvfile):
 
-        # Open the CSV file for reading
-        with open(csv_file_path, 'r', newline='', encoding='utf-8') as csvfile:
+        # Open the CSV file for readin
             # Create a CSV reader
-            reader = csv.DictReader(csvfile)
+        csv_content = csvfile.read().decode('utf-8').splitlines()
+        reader = csv.DictReader(csv_content)
 
-            # Extracted columns
-            extracted_columns = []
+        # Extracted columns
+        extracted_columns = []
 
-            # Iterate over each row in the CSV file
-            for row in reader:
-                # Extract the desired columns
-                problem_title = row["problem_name"]
+        # Iterate over each row in the CSV file
+        for row in reader:
+            # Extract the desired columns
+            problem_title = row["problem_name"]
 
-                leetcodedata = utils.getLeetcodeData(problem_title, self.api_res)
-                
-                extracted_columns.append(leetcodedata)
+            leetcodedata = utils.getLeetcodeData(problem_title, self.api_res)
+            
+            extracted_columns.append(leetcodedata)
 
         
         return extracted_columns
@@ -103,7 +103,7 @@ class DumpCSVData():
         category_name: self.extract_columns(csv_file_path)
         }
 
-        existing_data["Category"].update(new_category_data)
+        existing_data[existing_data_path].update(new_category_data)
 
 
         with open('data/{}.json'.format(existing_data_path), 'w') as file:
