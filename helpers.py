@@ -7,53 +7,81 @@ import utils
 import csv
 import pandas as pd
 
-def get_random_question(category_list, listype):
+def get_random_question(category_list, listype, difficulty_level, is_premium):
 
-    with open('data/{}.json'.format(listype), 'r', encoding='utf-8') as json_file:
-        data = json.load(json_file)
+    if difficulty_level == "Random":
+        difficulty_level = 0
+    elif difficulty_level == "Easy":
+        difficulty_level = 1
+    elif difficulty_level == "Medium":
+        difficulty_level = 2
+    elif difficulty_level == "Hard":
+        difficulty_level = 3
 
-    # Check if the "Category" key exists in the data
-    if listype not in data:
-        return "Invalid data format. Missing 'Category' key.", None
 
-    # Filter the provided category list to include only existing categories
-    existing_categories = [cat for cat in category_list if cat in data[listype]]
+    while True:
+        with open('data/{}.json'.format(listype), 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
 
-    if not existing_categories:
-        return "No valid categories found.", None
+        # Check if the "Category" key exists in the data
+        if listype not in data:
+            return "Invalid data format. Missing 'Category' key.", None
 
-    # Choose a random category from the filtered list
-    random_category_name = random.choice(existing_categories)
+        # Filter the provided category list to include only existing categories
+        existing_categories = [cat for cat in category_list if cat in data[listype]]
 
-    # Get the list of questions for the randomly selected category
-    questions_list = data[listype][random_category_name]
+        if not existing_categories:
+            return "No valid categories found.", None
 
-    if not questions_list:
-        return f"No questions found for category '{random_category_name}'", None
+        # Choose a random category from the filtered list
+        random_category_name = random.choice(existing_categories)
 
-    # Choose a random question from the list
-    random_question = random.choice(questions_list)
+        # Get the list of questions for the randomly selected category
+        questions_list = data[listype][random_category_name]
 
-    if random_question != None:
-        result = {
-            "question_id": random_question["question_id"],
-            "title_slug": random_question["title_slug"],
-            "title": random_question["title"],
-            "href": random_question["href"],
-            "difficulty_level": random_question["difficulty_level"],
-            "premium": random_question["premium"]
-        }
-    else:
-        result = {
-            "question_id": None,
-            "title_slug": None,
-            "title": None,
-            "href": None,
-            "difficulty_level": None,
-            "premium": None
-        }
+        if not questions_list:
+            return f"No questions found for category '{random_category_name}'", None
 
-    return result
+        # Choose a random question from the list
+        random_question = random.choice(questions_list)
+       # print(random_question)
+
+        if random_question != None:
+            if difficulty_level == 0 and is_premium == "Random":
+
+                result = {
+                    "question_id": random_question["question_id"],
+                    "title_slug": random_question["title_slug"],
+                    "title": random_question["title"],
+                    "href": random_question["href"],
+                    "difficulty_level": random_question["difficulty_level"],
+                    "premium": random_question["premium"]
+                }
+                return result
+
+            elif random_question["difficulty_level"] == difficulty_level and random_question["premium"] == is_premium:
+
+                result = {
+                    "question_id": random_question["question_id"],
+                    "title_slug": random_question["title_slug"],
+                    "title": random_question["title"],
+                    "href": random_question["href"],
+                    "difficulty_level": random_question["difficulty_level"],
+                    "premium": random_question["premium"]
+                }
+                return result
+
+        else:
+            result = {
+                "question_id": None,
+                "title_slug": None,
+                "title": None,
+                "href": None,
+                "difficulty_level": None,
+                "premium": None
+            }
+
+            return result
 
 
 
@@ -162,7 +190,7 @@ class DumpLeetcodeAPIData():
         category_name: json_Data
         }
 
-        existing_data["Categories"].update(new_category_data)
+        existing_data[existing_data_path].update(new_category_data)
 
 
         with open('data/{}.json'.format(existing_data_path), 'w') as file:

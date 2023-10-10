@@ -19,24 +19,30 @@ st.sidebar.title(":blue[CodeQuest Control Panel]")
 st.title(":blue[Welcome To CodeQuest]")
 
 
-category_list = fetchCategories()
+category_list = ["All"] + fetchCategories(file_path="Categories") + fetchCategories("Companies")
 control_panel_list = ["Random Quest", "Dump Questions"]
 dump_code_category = ["CSV Format", "LeetCode API"]
 
-selected_control = st.sidebar.selectbox(label="Select Your Action: ", options=control_panel_list, index=1)
+selected_control = st.sidebar.selectbox(label="Select Your Action: ", options=control_panel_list, index=0)
 
 
 if control_panel_list[0] in selected_control:
 
-    selected_categories = st.multiselect(label="Select Your Category/Company", options=["All"] + category_list, default="Google")
+    selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list, default=category_list[0])
 
+    col1, col2 = st.columns(2)
+    with col1:
+       difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level", options=["Random", "Easy", "Medium", "Hard"])
+
+    with col2:
+        is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
 
     if(st.button("Fetch Random Question")):
 
         if "All" in selected_categories:
-            question_set = get_random_question(category_list, listype="Companies")
+            question_set = get_random_question(["All"], listype="All", difficulty_level=difficulty_level_selector, is_premium=is_premium)
         else:
-            question_set = get_random_question(selected_categories, listype="Companies")
+            question_set = get_random_question(selected_categories, listype="Companies", difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
         col1, col2, col3, col4 = st.columns(4)
 
