@@ -20,7 +20,7 @@ st.title(":blue[Welcome To CodeQuest]")
 
 
 category_list = fetchCategories(file_path="LeetCodeProblems")
-control_panel_list = ["Random Quest", "Dump Questions"]
+control_panel_list = ["Random Quest", "Contest", "Dump Questions"]
 dump_code_category = ["CSV Format", "LeetCode API"]
 
 selected_control = st.sidebar.selectbox(label="Select Your Action: ", options=control_panel_list, index=0)
@@ -79,7 +79,7 @@ if control_panel_list[0] in selected_control:
 
 
 
-if control_panel_list[1] in selected_control:
+if control_panel_list[2] in selected_control:
     st.subheader("Control Pannel")
 
     format_selected = st.selectbox(label="Select your format", options=dump_code_category, index=0, key=33)
@@ -133,3 +133,56 @@ if control_panel_list[1] in selected_control:
             dump.run(file_name, indexname, leetcodeApi)
             st.success("Added Questions to {}.json".format(file_name))
 
+
+if control_panel_list[1] in selected_control:
+
+    selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
+                                         default=category_list[0])
+
+    col1, col2 = st.columns(2)
+    with col1:
+        difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level",
+                                                 options=["Random", "Easy", "Medium", "Hard"])
+
+    with col2:
+        is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
+
+    if (st.button("Fetch Random Question")):
+
+        with st.spinner("Fetching Question.."):
+            question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
+                                               difficulty_level=difficulty_level_selector, is_premium=is_premium)
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        question_title = "{}-{}".format(question_set["question_id"], question_set["title"])
+        question_link = "https://leetcode.com{}".format(question_set["href"])
+        difficulty_level = question_set["difficulty_level"]
+        premium = str(question_set["premium"])
+
+        with col1:
+            st.subheader("Question")
+            st.markdown("**{}**".format(question_title))
+
+        with col2:
+            st.subheader("Level")
+
+            if difficulty_level == 1:
+                st.caption(":green[Easy]")
+            elif difficulty_level == 2:
+                st.caption(":orange[Medium]")
+            elif difficulty_level == 3:
+                st.caption(":red[Hard]")
+            else:
+                st.caption(difficulty_level)
+
+        with col3:
+            st.subheader("Premium")
+            if premium == "True":
+                st.caption("Money :money_mouth_face:")
+            elif premium == "False":
+                st.caption("Free :thumbsup:")
+
+        with col4:
+            st.subheader("Link")
+            st.markdown('<a href="{}" target="_blank">Question Link</a>'.format(question_link), unsafe_allow_html=True)
