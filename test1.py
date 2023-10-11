@@ -1,284 +1,247 @@
 import streamlit as st
 import time
-from datetime import datetime, timedelta
+
+
+def convert_to_seconds(time_str):
+    try:
+        if '.' in time_str:
+            hours, minutes = map(float, time_str.split('.'))
+        else:
+            hours = float(time_str)
+            minutes = 0
+        total_seconds = int((hours * 60 + minutes) * 60)
+        return total_seconds
+    except ValueError:
+        return None
+
+
+def countdown_timer(seconds):
+    timer_placeholder = st.empty()
+    while seconds:
+        hours, remainder = divmod(seconds, 3600)
+        mins, secs = divmod(remainder, 60)
+        timer_text = '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+        timer_placeholder.text(timer_text)
+        time.sleep(1)
+        seconds -= 1
+    st.success("Time's up!")
+
 
 def main():
-    st.title("Timer with Stop Button")
+    st.title("Countdown Timer")
+    user_input = st.text_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):")
 
-    # Check if the timer has started
-    if "start_time" not in st.session_state:
-        st.session_state.start_time = None
+    if st.button("Start Timer"):
+        try:
+            seconds = convert_to_seconds(user_input)
+            if seconds is not None:
+                countdown_timer(seconds)
+            else:
+                st.error("Please enter a valid time format.")
+        except ValueError:
+            st.error("Please enter a valid time format.")
 
-    # Input for the timer duration
-    timer_duration_hours = st.number_input("Enter Timer Duration (in hours):", min_value=1, step=1)
 
-    # Display the current time
-    st.write(f"Current Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+if __name__ == '__main__':
+    main()
 
-    # Display the start button
-    start_button = st.button("Start Timer")
+import streamlit as st
+import time
 
-    # Check if the start button is clicked
-    if start_button:
-        # Calculate the end time only if the timer is not already started
-        if st.session_state.start_time is None:
-            st.session_state.start_time = datetime.now()
-            st.session_state.end_time = st.session_state.start_time + timedelta(hours=timer_duration_hours)
+def convert_to_seconds(time_str):
+    try:
+        if '.' in time_str:
+            hours, minutes = map(float, time_str.split('.'))
+        else:
+            hours = float(time_str)
+            minutes = 0
+        total_seconds = int((hours * 60 + minutes) * 60)
+        return total_seconds
+    except ValueError:
+        return None
 
-    # Check if the timer has started
-    if st.session_state.start_time is not None:
-        # Display the countdown timer
-        st.write("Countdown Timer:")
-        text_element = st.empty()
-        stop_button = st.button("Stop Timer")
+def countdown_timer(seconds):
+    timer_placeholder = st.empty()
+    progress_bar = st.progress(0)
 
-        while datetime.now() < st.session_state.end_time:
-            time_remaining = st.session_state.end_time - datetime.now()
-            time_remaining_str = str(time_remaining).split('.')[0]  # Display hours and minutes only
-            text_element.text(f"Time Remaining: {time_remaining_str}")
+    while seconds:
+        hours, remainder = divmod(seconds, 3600)
+        mins, secs = divmod(remainder, 60)
+        timer_text = '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+        timer_placeholder.text(timer_text)
 
-            # Check if the stop button is clicked
-            if stop_button:
-                break
+        # Update progress bar
+        progress_percentage = 1 - seconds / initial_seconds
+        progress_percentage = max(0, min(1, progress_percentage))  # Ensure it's within [0, 1]
+        progress_bar.progress(progress_percentage)
 
-            time.sleep(1)
+        time.sleep(1)
+        seconds -= 1
 
-        # Timer expired or stopped
-        st.write("Timer stopped or expired!")
+    st.success("Time's up!")
 
-        # Record the time in hours and minutes
-        time_recorded = f"{time_remaining.seconds // 3600}:{(time_remaining.seconds // 60) % 60}:{time_remaining.seconds % 60}"
-        st.write(f"Time Recorded: {time_recorded}")
+def main():
+    st.title("Countdown Timer")
+    user_input = st.text_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):")
 
-if __name__ == "__main__":
+    if st.button("Start Timer"):
+        try:
+            global initial_seconds
+            initial_seconds = convert_to_seconds(user_input)
+            if initial_seconds is not None:
+                countdown_timer(initial_seconds)
+            else:
+                st.error("Please enter a valid time format.")
+        except ValueError:
+            st.error("Please enter a valid time format.")
+
+if __name__ == '__main__':
     main()
 
 
 import streamlit as st
 import time
-from datetime import datetime, timedelta
 
+def countdown_timer(seconds):
+    timer_placeholder = st.empty()
+    progress_bar = st.progress(0)
+
+    while seconds:
+        hours, remainder = divmod(seconds, 3600)
+        mins, secs = divmod(remainder, 60)
+        timer_text = '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+        timer_placeholder.text(timer_text)
+
+        # Update progress bar
+        progress_percentage = 1 - seconds / initial_seconds
+        progress_percentage = max(0, min(1, progress_percentage))  # Ensure it's within [0, 1]
+        progress_bar.progress(progress_percentage)
+
+        time.sleep(1)
+        seconds -= 1
+
+    st.success("Time's up!")
 
 def main():
-    st.title("Timer with Stop Button")
+    st.title("Countdown Timer")
+    user_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.0)
 
-    # Check if the timer has started
-    if "start_time" not in st.session_state:
-        st.session_state.start_time = None
+    if st.button("Start Timer"):
+        try:
+            global initial_seconds
+            initial_seconds = int(user_input * 60 * 60)  # Convert hours to seconds
+            if initial_seconds > 0:
+                countdown_timer(initial_seconds)
+            else:
+                st.error("Please enter a valid time format.")
+        except ValueError:
+            st.error("Please enter a valid time format.")
 
-    # Input for the timer duration
-    timer_duration_hours = st.number_input("Enter Timer Duration (in hours):", min_value=1, step=1)
-
-    # Display the current time
-    st.write(f"Current Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
-    # Display the start button and stop button in parallel
-    col1, col2 = st.columns(2)
-
-    with col1:
-        start_button = st.button("Start Timer")
-
-        # Check if the start button is clicked
-        if start_button:
-            # Calculate the end time only if the timer is not already started
-            if st.session_state.start_time is None:
-                st.session_state.start_time = datetime.now()
-                st.session_state.end_time = st.session_state.start_time + timedelta(hours=timer_duration_hours)
-
-    with col2:
-        # Check if the timer has started
-        if st.session_state.start_time is not None:
-            # Display the stop button
-            stop_button = st.button("Stop Timer")
-
-    # Check if the timer has started
-    if st.session_state.start_time is not None:
-        # Display the countdown timer
-        st.write("Countdown Timer:")
-        text_element = st.empty()
-
-        while datetime.now() < st.session_state.end_time:
-            time_remaining = st.session_state.end_time - datetime.now()
-            time_remaining_str = str(time_remaining).split('.')[0]  # Display hours and minutes only
-            text_element.text(f"Time Remaining: {time_remaining_str}")
-
-            # Check if the stop button is clicked
-            if stop_button:
-                break
-
-            time.sleep(1)
-
-        # Timer expired or stopped
-        st.write("Timer stopped or expired!")
-
-        # Record the time in hours and minutes
-        time_recorded = f"{time_remaining.seconds // 3600}:{(time_remaining.seconds // 60) % 60}:{time_remaining.seconds % 60}"
-        st.write(f"Time Recorded: {time_recorded}")
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 
 import streamlit as st
 import time
-from datetime import datetime, timedelta
+
+def format_time(seconds):
+    hours, remainder = divmod(seconds, 3600)
+    mins, secs = divmod(remainder, 60)
+    return '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+
+def countdown_timer(seconds):
+    timer_placeholder = st.empty()
+    progress_bar = st.progress(0)
+    text_element = st.empty()
+
+    while seconds:
+        timer_text = format_time(seconds)
+        timer_placeholder.text(timer_text)
+
+        # Update progress bar
+        progress_percentage = 1 - seconds / initial_seconds
+        progress_percentage = max(0, min(1, progress_percentage))  # Ensure it's within [0, 1]
+        progress_bar.progress(progress_percentage)
+
+        # Display time remaining and elapsed time
+        time_remaining_str = format_time(seconds)
+        elapsed_str = format_time(initial_seconds - seconds)
+        text_element.text(f"Time Remaining: {time_remaining_str} | Elapsed Time: {elapsed_str}")
+
+        time.sleep(1)
+        seconds -= 1
+
+    st.success("Time's up!")
 
 def main():
-    st.title("Enhanced Timer with Stop and Reset Buttons")
+    st.title("Countdown Timer")
+    user_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.0)
 
-    # Check if the timer has started
-    if "start_time" not in st.session_state:
-        st.session_state.start_time = None
+    if st.button("Start Timer"):
+        try:
+            global initial_seconds
+            initial_seconds = int(user_input * 60 * 60)  # Convert hours to seconds
+            if initial_seconds > 0:
+                countdown_timer(initial_seconds)
+            else:
+                st.error("Please enter a valid time format.")
+        except ValueError:
+            st.error("Please enter a valid time format.")
 
-    # Input for the timer duration
-    timer_duration_hours = st.number_input("Enter Timer Duration (in hours):", min_value=0.1, step=0.1)
-
-    # Display the current time
-    st.write(f"Current Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
-    # Display the start, stop, and reset buttons in parallel
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        start_button = st.button("Start Timer")
-
-        # Check if the start button is clicked
-        if start_button:
-            # Calculate the end time only if the timer is not already started
-            if st.session_state.start_time is None:
-                st.session_state.start_time = datetime.now()
-                st.session_state.end_time = st.session_state.start_time + timedelta(hours=timer_duration_hours)
-
-    with col2:
-        # Check if the timer has started
-        if st.session_state.start_time is not None:
-            # Display the stop button
-            stop_button = st.button("Stop Timer")
-
-    with col3:
-        # Display the reset button
-        reset_button = st.button("Reset Timer")
-
-    # Display the countdown timer and progress bar if the timer has started
-    if st.session_state.start_time is not None:
-        # Display the countdown timer and progress bar
-        st.write("Countdown Timer:")
-        text_element = st.empty()
-        progress_bar = st.progress(0)
-
-        while datetime.now() < st.session_state.end_time:
-            time_elapsed = datetime.now() - st.session_state.start_time
-            time_remaining = st.session_state.end_time - datetime.now()
-            time_remaining_str = str(time_remaining).split('.')[0]  # Display hours and minutes only
-            elapsed_str = str(time_elapsed).split('.')[0]
-
-            # Display time remaining and elapsed time
-            text_element.text(f"Time Remaining: {time_remaining_str} | Elapsed Time: {elapsed_str}")
-
-            # Update progress bar
-            progress_percent = int((time_elapsed.total_seconds() / (st.session_state.end_time - st.session_state.start_time).total_seconds()) * 100)
-            progress_bar.progress(progress_percent)
-
-            # Check if the stop button is clicked
-            if stop_button:
-                break
-
-            # Check if the reset button is clicked
-            if reset_button:
-                st.session_state.start_time = None
-                break
-
-            time.sleep(1)
-
-        # Timer expired or stopped
-        st.write("Timer stopped or expired!")
-
-        # Record the time in hours and minutes
-        time_recorded = f"{time_elapsed.seconds // 3600}:{(time_elapsed.seconds // 60) % 60}:{time_elapsed.seconds % 60}"
-        st.write(f"Time Recorded: {time_recorded}")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 
 import streamlit as st
 import time
-from datetime import datetime, timedelta
+
+def format_time(seconds):
+    hours, remainder = divmod(seconds, 3600)
+    mins, secs = divmod(remainder, 60)
+    return '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+
+def countdown_timer(seconds):
+    timer_placeholder = st.empty()
+    progress_bar = st.progress(0)
+    text_element = st.empty()
+
+    while seconds:
+        timer_text = format_time(seconds)
+        timer_placeholder.text(timer_text)
+
+        # Update progress bar
+        progress_percentage = 1 - seconds / initial_seconds
+        progress_percentage = max(0, min(1, progress_percentage))  # Ensure it's within [0, 1]
+        progress_bar.progress(progress_percentage)
+
+        # Display time remaining and elapsed time
+        time_remaining_str = format_time(seconds)
+        elapsed_str = format_time(initial_seconds - seconds)
+        text_element.text(f"Time Remaining: {time_remaining_str} | Elapsed Time: {elapsed_str}")
+
+        time.sleep(1)
+        seconds -= 1
+
+    # Display final values
+    timer_placeholder.text("00:00:00")
+    progress_bar.progress(1.0)
+    text_element.text(f"Time Remaining: 00:00:00 | Elapsed Time: {format_time(initial_seconds)}")
+    st.success("Time's up!")
 
 def main():
-    st.title("Enhanced Timer with Stop and Reset Buttons")
+    st.title("Countdown Timer")
+    user_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.0)
 
-    # Check if the timer has started
-    if "start_time" not in st.session_state:
-        st.session_state.start_time = None
+    if st.button("Start Timer"):
+        try:
+            global initial_seconds
+            initial_seconds = int(user_input * 60 * 60)  # Convert hours to seconds
+            if initial_seconds > 0:
+                countdown_timer(initial_seconds)
+            else:
+                st.error("Please enter a valid time format.")
+        except ValueError:
+            st.error("Please enter a valid time format.")
 
-    # Input for the timer duration
-    timer_duration_hours = st.number_input("Enter Timer Duration (in hours):", min_value=0.1, step=0.1)
-
-    # Display the current time
-    st.write(f"Current Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
-    # Display the start, stop, and reset buttons in parallel
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        start_button = st.button("Start Timer")
-
-        # Check if the start button is clicked
-        if start_button:
-            # Calculate the end time only if the timer is not already started
-            if st.session_state.start_time is None:
-                st.session_state.start_time = datetime.now()
-                st.session_state.end_time = st.session_state.start_time + timedelta(hours=timer_duration_hours)
-
-    with col2:
-        # Check if the timer has started
-        if st.session_state.start_time is not None:
-            # Display the stop button
-            stop_button = st.button("Stop Timer")
-
-    with col3:
-        # Display the reset button
-        reset_button = st.button("Reset Timer")
-
-    # Display the countdown timer and progress bar if the timer has started
-    if st.session_state.start_time is not None:
-        # Display the countdown timer and progress bar
-        st.write("Countdown Timer:")
-        text_element = st.empty()
-        progress_bar = st.progress(0)
-
-        while datetime.now() < st.session_state.end_time:
-            time_elapsed = datetime.now() - st.session_state.start_time
-            time_remaining = st.session_state.end_time - datetime.now()
-            time_remaining_str = str(time_remaining).split('.')[0]  # Display hours and minutes only
-            elapsed_str = str(time_elapsed).split('.')[0]
-
-            # Display time remaining and elapsed time
-            text_element.text(f"Time Remaining: {time_remaining_str} | Elapsed Time: {elapsed_str}")
-
-            # Update progress bar
-            progress_percent = int((time_elapsed.total_seconds() / (st.session_state.end_time - st.session_state.start_time).total_seconds()) * 100)
-            progress_bar.progress(progress_percent)
-
-            # Check if the stop button is clicked
-            if stop_button:
-                break
-
-            # Check if the reset button is clicked
-            if reset_button:
-                st.session_state.start_time = None
-                break
-
-            time.sleep(1)
-
-        # Timer expired or stopped
-        st.write("Timer stopped or expired!")
-
-        # Record the time in hours and minutes
-        time_recorded = f"{time_elapsed.seconds // 3600}:{(time_elapsed.seconds // 60) % 60}:{time_elapsed.seconds % 60}"
-        st.write(f"Time Recorded: {time_recorded}")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
