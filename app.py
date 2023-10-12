@@ -2,7 +2,7 @@ import streamlit as st
 
 import helpers
 from utils import fetchCategories, fetchDataBasePath
-from helpers import get_random_question, DumpLeetcodeAPIData, DumpCSVData, CountDown
+from helpers import RandomQuestionSelector, DumpLeetcodeAPIData, DumpCSVData, CountDown
 
 
 import streamlit as st
@@ -22,6 +22,7 @@ st.sidebar.title(":blue[CodeQuest Control Panel]")
 st.title(":blue[Welcome To CodeQuest]")
 
 
+site_list = ["Leetcode", "CodeForces"]
 category_list = fetchCategories(file_path="LeetCodeProblems")
 control_panel_list = ["Random Quest", "Contest", "Dump Questions"]
 dump_code_category = ["CSV Format", "LeetCode API"]
@@ -29,34 +30,58 @@ dump_code_category = ["CSV Format", "LeetCode API"]
 selected_control = st.sidebar.selectbox(label="Select Your Action: ", options=control_panel_list, index=0)
 
 
+# Single Random Question
 if control_panel_list[0] in selected_control:
 
-    selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list, default=category_list[0])
+    site_list_selector = st.selectbox(label="Select Your Site: ", options=site_list)
+    question_set = {}
 
-    col1, col2 = st.columns(2)
-    with col1:
-       difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level", options=["Random", "Easy", "Medium", "Hard"])
+    if site_list_selector == "Leetcode":
+        selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list, default=category_list[0])
 
-    with col2:
-        is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
+        col1, col2 = st.columns(2)
+        with col1:
+           difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level", options=["Random", "Easy", "Medium", "Hard"])
+
+        with col2:
+            is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
+
+
+    if site_list_selector == "CodeForces":
+
+        st.text(" ")
+        st.markdown("##### Select Your Question Difficulty Level: ")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            lowerlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=0)
+        with col2:
+            upperlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=3500)
 
     if(st.button("Fetch Random Question")):
 
-        with st.spinner("Fetching Question.."):
-            question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
-                                                   difficulty_level=difficulty_level_selector, is_premium=is_premium)
+        if site_list_selector == "CodeForces":
+            with st.spinner("Fetching Question.."):
+                question_set = RandomQuestionSelector().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
+                                                                                          lowerlimit=lowerlimit,
+                                                                                        upperlimit=upperlimit)
+        if site_list_selector == "Leetcode":
+            question_set = RandomQuestionSelector().LeetCodeRandomQuestionGenerator(category_list=selected_categories,
+                                                                                    listype="LeetCodeProblems",
+                                                                                    difficulty_level=difficulty_level_selector,
+                                                                                    is_premium=is_premium)
 
         col1, col2, col3, col4 = st.columns(4)
 
         question_title = "{}-{}".format(question_set["question_id"], question_set["title"])
-        question_link = "https://leetcode.com{}".format(question_set["href"])
+        question_link = question_set["href"]
         difficulty_level = question_set["difficulty_level"]
         premium = str(question_set["premium"])
 
         with col1:
             st.subheader("Question")
             st.markdown("**{}**".format(question_title))
-        
+
         with col2:
             st.subheader("Level")
 
@@ -68,20 +93,20 @@ if control_panel_list[0] in selected_control:
                 st.caption(":red[Hard]")
             else:
                 st.caption(difficulty_level)
-        
+
         with col3:
             st.subheader("Premium")
             if premium == "True":
                 st.caption("Money :money_mouth_face:")
             elif premium == "False":
                 st.caption("Free :thumbsup:")
-        
+
         with col4:
             st.subheader("Link")
             st.markdown('<a href="{}" target="_blank">Question Link</a>'.format(question_link), unsafe_allow_html=True)
 
 
-
+# Control Pannel
 if control_panel_list[2] in selected_control:
     st.subheader("Control Pannel")
 
@@ -139,9 +164,7 @@ if control_panel_list[2] in selected_control:
 
 
 
-
-
-
+# Contest
 if control_panel_list[1] in selected_control:
 
     selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
@@ -163,7 +186,7 @@ if control_panel_list[1] in selected_control:
         with st.spinner("Fetching Question.."):
 
             for i in range(0, number_of_questions):
-                question_set_r = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
+                question_set_r = RandomQuestionSelector().LeetCodeRandomQuestionGenerator(category_list=selected_categories, listype="LeetCodeProblems",
                                                    difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
                 st.session_state.question_set.append(question_set_r)
