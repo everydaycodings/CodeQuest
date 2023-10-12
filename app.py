@@ -158,7 +158,7 @@ if control_panel_list[1] in selected_control:
         is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
         number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=1, step=1)
 
-    if (st.button("Fetch Random Question")):
+    if (st.button("Fetch Question")):
         st.session_state.question_set = []
         with st.spinner("Fetching Question.."):
 
@@ -169,14 +169,15 @@ if control_panel_list[1] in selected_control:
                 st.session_state.question_set.append(question_set_r)
 
 
+    st.divider()
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.subheader("Question")
         for question in st.session_state.question_set:
             title = question["title"]
-            st.markdown("**{}**".format(title))
-        st.text(" ")
+            st.caption(title)#markdown("**{}**".format(title))
+
 
 
     with col2:
@@ -191,7 +192,6 @@ if control_panel_list[1] in selected_control:
                 st.caption(":red[Hard]")
             else:
                 st.caption(difficulty_level)
-        st.text(" ")
 
     with col3:
         st.subheader("Premium")
@@ -201,7 +201,6 @@ if control_panel_list[1] in selected_control:
                 st.caption("Money :money_mouth_face:")
             elif premium == False:
                 st.caption("Free :thumbsup:")
-        st.text(" ")
 
     with col4:
         st.subheader("Link")
@@ -209,10 +208,16 @@ if control_panel_list[1] in selected_control:
             question_link = question["href"]
             st.markdown('<a href="{}" target="_blank">Question Link</a>'.format(question_link), unsafe_allow_html=True)
 
-        st.text(" ")
+    st.divider()
+
 
     if st.button("Submit Contest"):
-        st.code(helpers.global_state)
+        time_difference_seconds = round(helpers.global_state["initial_seconds"] - helpers.global_state["seconds"], 2)
+        hours = time_difference_seconds // 3600
+        remaining_seconds = time_difference_seconds % 3600
+        minutes = remaining_seconds // 60
+        time_taken = time_difference_seconds
+        st.text("Time Taken: {} hours and {} Minute".format(hours, minutes))
 
     if st.button("Start Contest"):
         CountDown().run(user_input=user_time_input, is_start=True)
