@@ -19,7 +19,7 @@ def timerstate():
     return global_state
 
 
-class RandomQuestionSelector():
+class RandomQuestionGenerator():
 
     def __init__(self):
         pass

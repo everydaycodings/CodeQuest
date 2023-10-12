@@ -2,7 +2,7 @@ import streamlit as st
 
 import helpers
 from utils import fetchCategories, fetchDataBasePath
-from helpers import RandomQuestionSelector, DumpLeetcodeAPIData, DumpCSVData, CountDown
+from helpers import RandomQuestionGenerator, DumpLeetcodeAPIData, DumpCSVData, CountDown
 
 
 import streamlit as st
@@ -62,11 +62,11 @@ if control_panel_list[0] in selected_control:
 
         if site_list_selector == "CodeForces":
             with st.spinner("Fetching Question.."):
-                question_set = RandomQuestionSelector().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
+                question_set = RandomQuestionGenerator().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
                                                                                           lowerlimit=lowerlimit,
                                                                                         upperlimit=upperlimit)
         if site_list_selector == "Leetcode":
-            question_set = RandomQuestionSelector().LeetCodeRandomQuestionGenerator(category_list=selected_categories,
+            question_set = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(category_list=selected_categories,
                                                                                     listype="LeetCodeProblems",
                                                                                     difficulty_level=difficulty_level_selector,
                                                                                     is_premium=is_premium)
@@ -186,7 +186,7 @@ if control_panel_list[1] in selected_control:
         with st.spinner("Fetching Question.."):
 
             for i in range(0, number_of_questions):
-                question_set_r = RandomQuestionSelector().LeetCodeRandomQuestionGenerator(category_list=selected_categories, listype="LeetCodeProblems",
+                question_set_r = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(category_list=selected_categories, listype="LeetCodeProblems",
                                                    difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
                 st.session_state.question_set.append(question_set_r)
