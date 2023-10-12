@@ -1,6 +1,8 @@
 import streamlit as st
+
+import helpers
 from utils import fetchCategories, fetchDataBasePath
-from helpers import get_random_question, DumpLeetcodeAPIData, DumpCSVData
+from helpers import get_random_question, DumpLeetcodeAPIData, DumpCSVData, CountDown
 
 
 import streamlit as st
@@ -12,7 +14,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
+if 'question_set' not in st.session_state:
+            st.session_state.question_set = []
 
 
 st.sidebar.title(":blue[CodeQuest Control Panel]")
@@ -134,6 +137,11 @@ if control_panel_list[2] in selected_control:
             st.success("Added Questions to {}.json".format(file_name))
 
 
+
+
+
+
+
 if control_panel_list[1] in selected_control:
 
     selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
@@ -144,29 +152,37 @@ if control_panel_list[1] in selected_control:
         difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level",
                                                  options=["Random", "Easy", "Medium", "Hard"])
 
+        user_time_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.00)
+
     with col2:
         is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
+        number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=1, step=1)
 
     if (st.button("Fetch Random Question")):
-
+        st.session_state.question_set = []
         with st.spinner("Fetching Question.."):
-            question_set = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
-                                               difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
-        col1, col2, col3, col4 = st.columns(4)
+            for i in range(0, number_of_questions):
+                question_set_r = get_random_question(category_list=selected_categories, listype="LeetCodeProblems",
+                                                   difficulty_level=difficulty_level_selector, is_premium=is_premium)
 
-        question_title = "{}-{}".format(question_set["question_id"], question_set["title"])
-        question_link = "https://leetcode.com{}".format(question_set["href"])
-        difficulty_level = question_set["difficulty_level"]
-        premium = str(question_set["premium"])
+                st.session_state.question_set.append(question_set_r)
 
-        with col1:
-            st.subheader("Question")
-            st.markdown("**{}**".format(question_title))
 
-        with col2:
-            st.subheader("Level")
+    col1, col2, col3, col4 = st.columns(4)
 
+    with col1:
+        st.subheader("Question")
+        for question in st.session_state.question_set:
+            title = question["title"]
+            st.markdown("**{}**".format(title))
+        st.text(" ")
+
+
+    with col2:
+        st.subheader("Level")
+        for question in st.session_state.question_set:
+            difficulty_level = question["difficulty_level"]
             if difficulty_level == 1:
                 st.caption(":green[Easy]")
             elif difficulty_level == 2:
@@ -175,14 +191,28 @@ if control_panel_list[1] in selected_control:
                 st.caption(":red[Hard]")
             else:
                 st.caption(difficulty_level)
+        st.text(" ")
 
-        with col3:
-            st.subheader("Premium")
-            if premium == "True":
+    with col3:
+        st.subheader("Premium")
+        for question in st.session_state.question_set:
+            premium = question["premium"]
+            if premium ==True:
                 st.caption("Money :money_mouth_face:")
-            elif premium == "False":
+            elif premium == False:
                 st.caption("Free :thumbsup:")
+        st.text(" ")
 
-        with col4:
-            st.subheader("Link")
+    with col4:
+        st.subheader("Link")
+        for question in st.session_state.question_set:
+            question_link = question["href"]
             st.markdown('<a href="{}" target="_blank">Question Link</a>'.format(question_link), unsafe_allow_html=True)
+
+        st.text(" ")
+
+    if st.button("Submit Contest"):
+        st.code(helpers.global_state)
+
+    if st.button("Start Contest"):
+        CountDown().run(user_input=user_time_input, is_start=True)

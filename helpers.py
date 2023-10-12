@@ -6,6 +6,17 @@ import time
 import utils
 import csv
 import pandas as pd
+import streamlit as st
+import time
+
+
+global_state = {
+    'initial_seconds': 0,
+    'seconds': 0
+}
+
+def timerstate():
+    return global_state
 
 
 def returnMap(question_id, title_slug, title, href, difficulty_level, premium):
@@ -215,3 +226,54 @@ class DumpLeetcodeAPIData():
 
         json_data = self.getLeetcodeData(api_url)
         self.add_new_category(existing_data_path, category_name, json_data)
+
+
+
+class CountDown:
+    def __init__(self):
+        pass
+
+    def format_time(self, seconds):
+        hours, remainder = divmod(seconds, 3600)
+        mins, secs = divmod(remainder, 60)
+        return '{:02d}:{:02d}:{:02d}'.format(int(hours), int(mins), int(secs))
+
+    def countdown_timer(self):
+        timer_placeholder = st.empty()
+        progress_bar = st.progress(0)
+        text_element = st.empty()
+
+        while global_state['seconds']:
+            timer_text = self.format_time(global_state['seconds'])
+            timer_placeholder.text(timer_text)
+
+            # Update progress bar
+            progress_percentage = 1 - global_state['seconds'] / global_state['initial_seconds']
+            progress_percentage = max(0, min(1, progress_percentage))  # Ensure it's within [0, 1]
+            progress_bar.progress(progress_percentage)
+
+            # Display time remaining and elapsed time
+            time_remaining_str = self.format_time(global_state['seconds'])
+            elapsed_str = self.format_time(global_state['initial_seconds'] - global_state['seconds'])
+            text_element.text(f"Time Remaining: {time_remaining_str} | Elapsed Time: {elapsed_str}")
+
+            time.sleep(1)
+            global_state['seconds'] -= 1
+
+        # Display final values
+        progress_bar.progress(1.0)
+        text_element.text(f"Time Remaining: 00:00:00 | Elapsed Time: {self.format_time(global_state['initial_seconds'])}")
+        st.success("Time's up!")
+
+    def run(self, user_input, is_start):
+
+        if is_start:
+            try:
+                global_state['initial_seconds'] = int(user_input * 60 * 60)  # Convert hours to seconds
+                global_state['seconds'] = global_state['initial_seconds']
+                if global_state['initial_seconds'] > 0:
+                    self.countdown_timer()
+                else:
+                    st.error("Please enter a valid time format.")
+            except ValueError:
+                st.error("Please enter a valid time format.")
