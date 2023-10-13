@@ -147,3 +147,43 @@ def parse_html_question_markdown(html_content):
     )
 
     return markdown_output
+
+
+
+def coutOnes(list):
+
+    count = 0;
+    index = []
+    for i in range(0, len(list)):
+        if list[i] == 1:
+            count = count + 1
+            index.append(i)
+
+    return count, index
+
+
+def generate_Contest_Marks(n, index_list):
+    result = []
+    total = 0
+    total_marks = 0
+
+    # Generate n-1 random numbers
+    for _ in range(n - 1):
+        # Generate a random number between 1 and 10
+        random_number = random.randint(1, 10)
+
+        # Check if adding the random number will not exceed n * 10
+        if total + random_number <= n * 10:
+            result.append(random_number)
+            total += random_number
+
+    # The last element is calculated to make the total exactly n * 10
+    result.append(n * 10 - total)
+
+    # Shuffle the list to make the order random
+    random.shuffle(result)
+
+    for i in index_list:
+        total_marks = result[i] + total_marks
+
+    return result, total_marks

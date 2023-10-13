@@ -333,3 +333,7 @@ class CountDown:
                     st.error("Please enter a valid time format.")
             except ValueError:
                 st.error("Please enter a valid time format.")
+
+
+def SubmitContest(questionsPair, timeTaken):
+    pass

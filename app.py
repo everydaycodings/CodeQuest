@@ -1,6 +1,9 @@
+import random
+
 import streamlit as st
 
 import helpers
+import utils
 from utils import fetchCategories, fetchDataBasePath
 from helpers import RandomQuestionGenerator, DumpLeetcodeAPIData, DumpCSVData, CountDown
 
@@ -14,8 +17,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-if 'question_set' not in st.session_state:
-            st.session_state.question_set = []
+variables_to_initialize = ['question_set', 'ContestQuestionProgress']
+for variable_name in variables_to_initialize:
+    if variable_name not in st.session_state:
+        st.session_state[variable_name] = []
+
 
 
 st.sidebar.title(":blue[CodeQuest Control Panel]")
@@ -167,33 +173,59 @@ if control_panel_list[2] in selected_control:
 # Contest
 if control_panel_list[1] in selected_control:
 
-    selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
-                                         default=category_list[0])
+    site_list_selector = st.selectbox(label="Select Your Site: ", options=site_list)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level",
-                                                 options=["Random", "Easy", "Medium", "Hard"])
+    if site_list_selector == "Leetcode":
+        selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
+                                             default=category_list[0])
 
-        user_time_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.00)
+        col1, col2 = st.columns(2)
+        with col1:
+            difficulty_level_selector = st.selectbox(label="Select Your Difficulty Level",
+                                                     options=["Random", "Easy", "Medium", "Hard"])
 
-    with col2:
-        is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False])
-        number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=1, step=1)
+            user_time_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.00)
+
+        with col2:
+            is_premium = st.selectbox(label="Do you want premium Questions", options=["Random", True, False], index=1)
+            number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=4, step=1)
+
+    if site_list_selector == "CodeForces":
+
+        st.text(" ")
+        st.markdown("##### Select Your Question Difficulty Level: ")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            lowerlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=0)
+            user_time_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.00)
+        with col2:
+            upperlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=3500)
+            number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=4, step=1)
 
     if (st.button("Fetch Question")):
         st.session_state.question_set = []
+        st.session_state.ContestQuestionProgress = []
         with st.spinner("Fetching Question.."):
 
             for i in range(0, number_of_questions):
-                question_set_r = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(category_list=selected_categories, listype="LeetCodeProblems",
-                                                   difficulty_level=difficulty_level_selector, is_premium=is_premium)
+                if site_list_selector == "CodeForces":
+                    question_set_r = RandomQuestionGenerator().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
+                                                                                               lowerlimit=lowerlimit,
+                                                                                               upperlimit=upperlimit)
+
+                if site_list_selector == "Leetcode":
+                    question_set_r = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(
+                                                            category_list=selected_categories,
+                                                            listype="LeetCodeProblems",
+                                                            difficulty_level=difficulty_level_selector,
+                                                            is_premium=is_premium)
 
                 st.session_state.question_set.append(question_set_r)
 
 
     st.divider()
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
         st.subheader("Question")
@@ -231,8 +263,23 @@ if control_panel_list[1] in selected_control:
             question_link = question["href"]
             st.markdown('<a href="{}" target="_blank">Question Link</a>'.format(question_link), unsafe_allow_html=True)
 
-    st.divider()
+    with col5:
+        st.subheader("Progress")
+        while len(st.session_state.ContestQuestionProgress) < len(st.session_state.question_set):
+            st.session_state.ContestQuestionProgress.append(0)
 
+        # Iterate through the questions
+        for i, question in enumerate(st.session_state.question_set):
+
+            # Use the stored value as the default in the select box
+            user_input = st.selectbox(label=" ", options=["Pending", "Completed"],
+                                      key=f"selectbox_{i}", label_visibility="collapsed")
+
+            # Set the corresponding value in ContestQuestionProgress based on the selection
+            st.session_state.ContestQuestionProgress[i] = 1 if user_input == "Completed" else 0
+
+
+    st.divider()
 
     if st.button("Submit Contest"):
         time_difference_seconds = round(helpers.global_state["initial_seconds"] - helpers.global_state["seconds"], 2)
@@ -240,7 +287,11 @@ if control_panel_list[1] in selected_control:
         remaining_seconds = time_difference_seconds % 3600
         minutes = remaining_seconds // 60
         time_taken = time_difference_seconds
-        st.text("Time Taken: {} hours and {} Minute".format(hours, minutes))
+        question_attempted, question_attemped_index = utils.coutOnes(st.session_state.ContestQuestionProgress)
+        question_marks, Total_marks = utils.generate_Contest_Marks(number_of_questions, question_attemped_index)
+        st.text("Time Taken: {} hours and {} Minute || {} seconds ".format(hours, minutes, time_difference_seconds))
+        st.text("Questions Attempted: {} || Total Marks Otained {} out of {}".format(question_attempted, Total_marks, number_of_questions*10))
+        st.text("Marks Of Individual Question: {}".format(question_marks))
 
     if st.button("Start Contest"):
         CountDown().run(user_input=user_time_input, is_start=True)
