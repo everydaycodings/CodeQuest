@@ -7,7 +7,7 @@ import os
 
 
 
-def fetchCategories(file_path):
+def LeetCodeCategory(file_path):
     json_file_path = 'data/{}.json'.format(file_path)
 
     # Read JSON data from file
@@ -18,6 +18,24 @@ def fetchCategories(file_path):
     category_names = list(json_data[file_path].keys())
 
     return category_names
+
+def CodeForcesTags(json_file_path):
+    with open("data/{}.json".format(json_file_path), 'r') as file:
+        all_problems = json.load(file)["result"]["problems"]
+
+    print('Processing problems...')
+
+    tags_list = set()  # Use a set to store unique tags
+
+    for problem in all_problems:
+        tags_list.update(problem.get("tags", []))
+
+    # Convert the set of unique tags to a list
+    unique_tags = list(tags_list)
+
+    # Print or return the list of unique tags
+
+    return unique_tags
 
 def fetchDataBasePath():
     # Ensure the path is a directory

@@ -4,7 +4,7 @@ import streamlit as st
 
 import helpers
 import utils
-from utils import fetchCategories, fetchDataBasePath
+from utils import  fetchDataBasePath
 from helpers import RandomQuestionGenerator, DumpLeetcodeAPIData, DumpCSVData, CountDown
 
 
@@ -29,7 +29,8 @@ st.title(":blue[Welcome To CodeQuest]")
 
 
 site_list = ["Leetcode", "CodeForces"]
-category_list = fetchCategories(file_path="LeetCodeProblems")
+leet_code_category_list = utils.LeetCodeCategory(file_path="LeetCodeProblems")
+code_forces_category_list = ["ALL"]+utils.CodeForcesTags(json_file_path="CodeForces")
 control_panel_list = ["Random Quest", "Contest", "Dump Questions"]
 dump_code_category = ["CSV Format", "LeetCode API"]
 
@@ -43,7 +44,7 @@ if control_panel_list[0] in selected_control:
     question_set = {}
 
     if site_list_selector == "Leetcode":
-        selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list, default=category_list[0])
+        selected_categories = st.multiselect(label="Select Your Category/Company", options=leet_code_category_list, default=leet_code_category_list[0])
 
         col1, col2 = st.columns(2)
         with col1:
@@ -55,22 +56,22 @@ if control_panel_list[0] in selected_control:
 
     if site_list_selector == "CodeForces":
 
-        st.text(" ")
-        st.markdown("##### Select Your Question Difficulty Level: ")
+        selected_categories = st.multiselect(label="Select Your Category/Company", options=code_forces_category_list, default=code_forces_category_list[0])
 
         col1, col2 = st.columns(2)
         with col1:
-            lowerlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=0)
+            lowerlimit = st.number_input(label="Select The lower range", min_value=800, step=1, max_value=3500, value=800)
         with col2:
-            upperlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=3500)
+            upperlimit = st.number_input(label="Select The lower range", min_value=800, step=1, max_value=3500, value=3500)
 
     if(st.button("Fetch Random Question")):
 
         if site_list_selector == "CodeForces":
             with st.spinner("Fetching Question.."):
                 question_set = RandomQuestionGenerator().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
-                                                                                          lowerlimit=lowerlimit,
-                                                                                        upperlimit=upperlimit)
+                                                                                           lowerlimit=lowerlimit,
+                                                                                           upperlimit=upperlimit,
+                                                                                           target_tags=selected_categories)
         if site_list_selector == "Leetcode":
             question_set = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(category_list=selected_categories,
                                                                                     listype="LeetCodeProblems",
@@ -176,8 +177,8 @@ if control_panel_list[1] in selected_control:
     site_list_selector = st.selectbox(label="Select Your Site: ", options=site_list)
 
     if site_list_selector == "Leetcode":
-        selected_categories = st.multiselect(label="Select Your Category/Company", options=category_list,
-                                             default=category_list[0])
+        selected_categories = st.multiselect(label="Select Your Category/Company", options=leet_code_category_list,
+                                             default=leet_code_category_list[0])
 
         col1, col2 = st.columns(2)
         with col1:
@@ -192,15 +193,14 @@ if control_panel_list[1] in selected_control:
 
     if site_list_selector == "CodeForces":
 
-        st.text(" ")
-        st.markdown("##### Select Your Question Difficulty Level: ")
+        selected_categories = st.multiselect(label="Select Your Tags", options=code_forces_category_list, default=code_forces_category_list[0])
 
         col1, col2 = st.columns(2)
         with col1:
-            lowerlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=0)
+            lowerlimit = st.number_input(label="Select The lower range", min_value=800, step=1, max_value=3500, value=800)
             user_time_input = st.number_input("Enter time in hours (e.g., 1.5 for 1 hour 30 minutes):", min_value=0.00)
         with col2:
-            upperlimit = st.number_input(label="Select The lower range", min_value=0, step=1, max_value=3500, value=3500)
+            upperlimit = st.number_input(label="Select The lower range", min_value=800, step=1, max_value=3500, value=3500)
             number_of_questions = st.number_input(label="Enter Number Of Questions: ", min_value=4, step=1)
 
     if (st.button("Fetch Question")):
@@ -211,8 +211,9 @@ if control_panel_list[1] in selected_control:
             for i in range(0, number_of_questions):
                 if site_list_selector == "CodeForces":
                     question_set_r = RandomQuestionGenerator().CodeForcesRandomQuestionGenerator(file_name="CodeForces",
-                                                                                               lowerlimit=lowerlimit,
-                                                                                               upperlimit=upperlimit)
+                                                                                              lowerlimit=lowerlimit,
+                                                                                              upperlimit=upperlimit,
+                                                                                              target_tags=selected_categories)
 
                 if site_list_selector == "Leetcode":
                     question_set_r = RandomQuestionGenerator().LeetCodeRandomQuestionGenerator(

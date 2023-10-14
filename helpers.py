@@ -111,58 +111,52 @@ class RandomQuestionGenerator():
                 return result
 
 
-    def CodeForcesRandomQuestionGenerator(self, file_name, lowerlimit, upperlimit):
+    def CodeForcesRandomQuestionGenerator(self, file_name, lowerlimit, upperlimit, target_tags):
 
-        while True:
-            with open('data/{}.json'.format(file_name), 'r', encoding='utf-8') as json_file:
-                data = json.load(json_file)
-
-            if "CodeForces" not in data:
-                return "Invalid data format. Missing 'CodeForces' key.", None
-
-                # Get the list of questions for CodeForces
-            questions_list = data["CodeForces"]
-
-            if not questions_list:
-                return "No questions found for CodeForces.", None
-
-            # Choose a random question from the list
-            random_question = random.choice(questions_list)
-
-            if not questions_list:
-                return f"No questions found for category '{random_category_name}'", None
-
-            # Choose a random question from the list
-            random_question = random.choice(questions_list)
-           # print(random_question)
-            if random_question != None:
-
-                question_id = random_question["id"]
-                title = random_question["name"]
-                href ="https://codeforces.com{}".format(random_question["href"])
-                difficultyLevel = random_question["difficulty"]
-                if difficultyLevel is None:
-                    difficultyLevel == 0
-                try:
-                    difficultyLevel = int(difficultyLevel)
-                except TypeError:
-                    difficultyLevel = 0
-                premium = False
+        with open("data/{}.json".format(file_name), 'r') as file:
+            all_problems = json.load(file)["result"]["problems"]
 
 
-                if int(difficultyLevel) >= lowerlimit and  int(difficultyLevel) <= upperlimit:
-                    return self.returnMap(question_id, title, href, difficultyLevel, premium)
+        # Filter problems by tags
+        if  "ALL" in target_tags:
+            # If "ALL" is specified, don't filter by tags
+            filtered_problems = all_problems
+        else:
+            filtered_problems = [
+                problem for problem in all_problems
+                if set(target_tags).issubset(set(problem.get("tags", [])))
+            ]
 
-            else:
-                result = {
-                    "question_id": None,
-                    "title": None,
-                    "href": None,
-                    "difficulty_level": None,
-                    "premium": None
-                }
+            # Filter problems by rating
+        filtered_problems = [
+            problem for problem in filtered_problems
+            if problem.get("rating") and lowerlimit <= problem["rating"] <= upperlimit
+        ]
 
-                return result
+        # Check if there are any filtered problems
+        if filtered_problems:
+            # Select a random problem from the filtered list
+            random_problem = random.choice(filtered_problems)
+
+            question_id = "{}{}".format(random_problem["contestId"], random_problem["index"])
+            title = random_problem["name"]
+            href = "https://codeforces.com/problemset/problem/{}/{}".format(random_problem["contestId"], random_problem["index"])
+            difficulty_level = random_problem["rating"]
+            premium = False
+
+
+            return self.returnMap(question_id, title, href, difficulty_level, premium)
+
+        else:
+            result = {
+                "question_id": None,
+                "title": None,
+                "href": None,
+                "difficulty_level": None,
+                "premium": None
+            }
+
+            return result
 
 
 
